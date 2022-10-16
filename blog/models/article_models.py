@@ -33,7 +33,7 @@ class Article(models.Model):
     slug = models.SlugField()
     author = models.ForeignKey(User, on_delete=models.CASCADE,
                                related_name='articles')
-    image = models.ImageField(default='article-default.jpg',
+    image = models.ImageField(
                               upload_to='article_pics')
     image_credit = models.CharField(max_length=250, null=True, blank=True)
     body = RichTextUploadingField(blank=True)
