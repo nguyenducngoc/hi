@@ -29,7 +29,7 @@ class Article(models.Model):
     # BLOG MODEL FIELDS
     category = models.ForeignKey(Category, on_delete=models.CASCADE,
                                  related_name='articles')
-    title = models.CharField(max_length=250, null=False, blank=False)
+    title = models.CharField(max_length=200, null=False, blank=False)
     slug = models.SlugField()
     author = models.ForeignKey(User, on_delete=models.CASCADE,
                                related_name='articles')
