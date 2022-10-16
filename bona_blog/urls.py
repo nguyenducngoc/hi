@@ -17,9 +17,10 @@ Including another URLconf
 # Core Django imports
 from django.contrib.auth import views as auth_views
 from django.conf import settings
-from django.conf.urls.static import static
+from django.conf.urls.static import static, serve
 from django.contrib import admin
 from django.urls import include, path
+from django.conf.urls import url
 
 
 urlpatterns = [
@@ -51,6 +52,10 @@ urlpatterns = [
          auth_views.PasswordResetCompleteView.as_view(
              template_name='account/password_reset_complete.html'),
          name='password_reset_complete'),
+
+    url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), 
+    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),  
+
 
 ]
 
