@@ -2,13 +2,13 @@
 {% load static %}
 
 {% block title %}
-    Register
+    Đăng kí
 {% endblock title %}
 
 {% block content %}
 
 				<span class="login100-form-title p-b-41">
-					Register
+					Đăng kí
 				</span>
 				<form action="{% url 'blog:register' %}" class="login100-form p-b-33 p-t-5"
                       method="post" novalidate>
@@ -36,17 +36,17 @@
 
 					<div class="container-login100-form-btn m-t-32">
 						<button type="submit" class="login100-form-btn">
-							Register
+							Đăng kí
 						</button>
                     </div>
                     <hr />
                     <div class="text-center">
                       <a class="small text-primary" href="{% url 'blog:login' %}"
-                        >Already Have an Account!</a>
+                        >Bạn đã có sẵn tài khoản!</a>
                     </div>
                     <div class="text-center font-weight-bold">
                       <a class="small text-info" href="{% url 'blog:home' %}">
-                          Home
+                          Trang chủ
                       </a>
                     </div>
 				</form>

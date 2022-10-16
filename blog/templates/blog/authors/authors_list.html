@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-    Authors
+    Tác giả
 {% endblock title %}
 
 
@@ -11,7 +11,7 @@
              style="background-image: url({% static 'blog/images/authors_banner.png' %});
                     background-size: contain;
                  height: 400px; width: 100%;">
-		<h1 class="title display-table-cell cell-color"><b>AUTHORS</b></h1>
+		<h1 class="title display-table-cell cell-color"><b>TÁC GIẢ</b></h1>
 	</div><!-- slider -->
 
 	<section class="blog-area section">
@@ -61,16 +61,16 @@
                 {% endfor %}
 			</div><!-- row -->
             {% else %}
-               <center><div class="alert alert-info"><b>No Authors</b></div></center>
+               <center><div class="alert alert-info"><b>Không có tác giả</b></div></center>
             {% endif %}
                 {# Pagination for article post #}
             {% if is_paginated %}
 
                 {# Displays previous pages #}
                 {% if page_obj.has_previous %}
-                    <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
+                    <a class="btn btn-outline-info mb-4" href="?page=1">Trang đầu</a>
                     <a class="btn btn-outline-info mb-4"
-                       href="?page={{ page_obj.previous_page_number }}">Previous
+                       href="?page={{ page_obj.previous_page_number }}">Trang trước
                     </a>
                 {% endif %}
 
@@ -86,10 +86,10 @@
                 {# Displays next pages #}
                {% if page_obj.has_next %}
                     <a class="btn btn-outline-info mb-4"
-                       href="?page={{ page_obj.next_page_number }}">Next
+                       href="?page={{ page_obj.next_page_number }}">Trang sau
                     </a>
                     <a class="btn btn-outline-info mb-4"
-                       href="?page={{ page_obj.paginator.num_pages }}">Last
+                       href="?page={{ page_obj.paginator.num_pages }}">Trang cuối
                     </a>
                 {% endif %}
 

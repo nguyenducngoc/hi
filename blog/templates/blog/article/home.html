@@ -1,7 +1,7 @@
 {% extends 'blog/blog_base.html' %}
 
 {% block title %}
-    Home
+    Trang chủ
 {% endblock title %}
 
 
@@ -39,7 +39,7 @@
 
 	</div><!-- slider -->
     {% else %}
-        <center><div class="alert alert-warning"><b>No Categories</b></div></center>
+        <center><div class="alert alert-warning"><b>Không có danh mục</b></div></center>
     {% endif %}
 
 	<section class="blog-area section">
@@ -79,16 +79,16 @@
                 {% endfor %}
 			</div><!-- row -->
             {% else %}
-                <div class="alert alert-warning"><b>No Articles</b></div>
+                <div class="alert alert-warning"><b>Không có bài viết</b></div>
             {% endif %}
         {# Pagination for article post #}
             {% if is_paginated %}
 
                 {# Displays previous pages #}
                 {% if page_obj.has_previous %}
-                    <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
+                    <a class="btn btn-outline-info mb-4" href="?page=1">Trang đầu</a>
                     <a class="btn btn-outline-info mb-4"
-                       href="?page={{ page_obj.previous_page_number }}">Previous
+                       href="?page={{ page_obj.previous_page_number }}">Trang trước
                     </a>
                 {% endif %}
 
@@ -104,10 +104,10 @@
                 {# Displays next pages #}
                {% if page_obj.has_next %}
                     <a class="btn btn-outline-info mb-4"
-                       href="?page={{ page_obj.next_page_number }}">Next
+                       href="?page={{ page_obj.next_page_number }}">Trang sau
                     </a>
                     <a class="btn btn-outline-info mb-4"
-                       href="?page={{ page_obj.paginator.num_pages }}">Last
+                       href="?page={{ page_obj.paginator.num_pages }}">Trang cuối
                     </a>
                 {% endif %}
 

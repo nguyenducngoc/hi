@@ -15,7 +15,7 @@
     <meta name="keywords" content="Blog, Django-Blog, Django-app">
 
     <!-- Title -->
-    <title>BONA | {% block title %}{% endblock title %}</title>
+    <title>Shuyi | {% block title %}{% endblock title %}</title>
 
 	<!-- Font and Font-awesome -->
     <link href="{% static 'blog/css/common-css/fontawesome-free/css/all.min.css' %}"
@@ -51,14 +51,14 @@
 			<div class="menu-nav-icon" data-nav-menu="#main-menu"><i class="ion-navicon"></i></div>
 
 			<ul class="main-menu visible-on-click" id="main-menu">
-{#				<li><a href="{% url 'blog:authors_list' %}">Authors</a></li>#}
-				<li><a href="{% url 'blog:categories_list' %}">Categories</a></li>
-                <li><a href="#">About</a></li>
+{#				<li><a href="{% url 'blog:authors_list' %}">Tác giả</a></li>#}
+				<li><a href="{% url 'blog:categories_list' %}">Danh mục</a></li>
+                <li><a href="#">Giới thiệu</a></li>
                 {% if request.user.is_authenticated %}
                     <li><a href="{% url 'blog:dashboard_home' %}">Dashboard</a></li>
-                    <li><a href="{% url 'blog:logout' %}">Logout</a></li>
+                    <li><a href="{% url 'blog:logout' %}">Đăng xuất</a></li>
                 {% else %}
-                    <li><a href="{% url 'blog:login' %}">Login</a></li>
+                    <li><a href="{% url 'blog:login' %}">Đăng nhập</a></li>
                 {% endif %}
 			</ul><!-- main-menu -->
 
@@ -112,7 +112,7 @@
 {#						<a class="logo" href="#">#}
 {#                            <img src="{% static 'blog/images/logo.png' %}"#}
 {#                                 alt="Logo Image"></a>#}
-{#						<p class="copyright">Bona @ 2018 - 2020. All rights reserved.</p>#}
+{#						<p class="copyright">Shuyi-2022</p>#}
 {##}
 {#						<ul class="icons">#}
 {#							<li><a href="#">#}
