@@ -94,8 +94,12 @@ WSGI_APPLICATION = 'bona_blog.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd10h3dvl0fgbhi',
+        'USER': 'edmbvfbzvwalrz',
+        'PASSWORD' : '9de077c8dbe8a2adcf9a8e3a2ef0bb8533363483875bbbe90542695ba5bca70d',
+        'HOST' : 'ec2-23-20-140-229.compute-1.amazonaws.com',
+        'PORT' : '5432'
     }
 }
 
