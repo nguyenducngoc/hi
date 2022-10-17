@@ -19,7 +19,7 @@ from django.contrib.auth import views as auth_views
 from django.conf import settings
 from django.conf.urls.static import static, serve
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import include, path, re_path
 from django.conf.urls import url
 
 
@@ -53,9 +53,8 @@ urlpatterns = [
              template_name='account/password_reset_complete.html'),
          name='password_reset_complete'),
 
-    url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), 
-    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),  
-
+    re_path(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}), 
+    re_path(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
 
 ]
 
@@ -65,12 +64,12 @@ if settings.DEBUG:
 
     import debug_toolbar
     urlpatterns = [
-                      path('__debug__/', include(debug_toolbar.urls)),
-                  ] + urlpatterns
+                    path('__debug__/', include(debug_toolbar.urls)),
+                   ] + urlpatterns
 
 
 # Modifies default django admin titles and headers with custom app detail.
-admin.site.site_header = "Bona Admin"
-admin.site.site_title = "Bona Admin Portal"
-admin.site.index_title = "Welcome to Bona Blog Portal"
+admin.site.site_header = "Shuyi Admin"
+admin.site.site_title = "Shuyi Admin Portal"
+admin.site.index_title = "Welcome to Shuyi Blog Portal"
 

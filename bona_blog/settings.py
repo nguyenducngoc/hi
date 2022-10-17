@@ -9,8 +9,9 @@ https://docs.djangoproject.com/en/2.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
-import django_heroku
 import os
+import django_heroku
+import dropbox
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -59,7 +60,6 @@ INTERNAL_IPS = ['127.0.0.1', '::1']
 MIDDLEWARE = [
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -94,8 +94,12 @@ WSGI_APPLICATION = 'bona_blog.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd10h3dvl0fgbhi',
+        'USER': 'edmbvfbzvwalrz',
+        'PASSWORD' : '9de077c8dbe8a2adcf9a8e3a2ef0bb8533363483875bbbe90542695ba5bca70d',
+        'HOST' : 'ec2-23-20-140-229.compute-1.amazonaws.com',
+        'PORT' : '5432'
     }
 }
 
@@ -130,19 +134,20 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
-
+PRIJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(PRIJECT_ROOT, 'static'),
 django_heroku.settings(locals())
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "blog/static"),
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles','static-root')
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
@@ -150,7 +155,7 @@ STATICFILES_FINDERS = [
 
 # Media files (User uploaded images)
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'media', 'media-root')
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 # Specifies the CSS Framework Crispy Forms should use.heroku git:remote -a shuy1
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

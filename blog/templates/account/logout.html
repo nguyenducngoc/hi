@@ -1,7 +1,7 @@
 {% extends 'account/account_base.html' %}
 
 {% block title %}
-    Logout
+    Đăng xuất
 {% endblock title %}
 
 {% block content %}
@@ -9,15 +9,15 @@
 
         <div class="card shadow-sm">
 
-                <h4 class="card-header">Successful Logout</h4>
+                <h4 class="card-header">Đã đăng xuất thành công</h4>
 
                 <div class="card-body">
                         <div class="alert alert-success text-dark text-center">
-                            You have successfully logged out. <br>
-                            You may go ahead and Login again.
+                            Bạn đã đăng xuất thành công. <br>
+                            Bạn có thể tiếp tục và Đăng nhập lại.
                         </div>
                         <a class="btn btn-info float-right"
-                           href="{% url 'blog:login' %}">Log In Here</a>
+                           href="{% url 'blog:login' %}">Đăng nhập tại đây</a>
                 </div>
             </div>
     </div>
