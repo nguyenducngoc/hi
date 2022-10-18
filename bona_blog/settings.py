@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 import os
 import django_heroku
+import dj_database_url
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -26,7 +27,7 @@ SECRET_KEY = 'h((g0d1e)y#zn%d!2wt_ow5otovu5nd#lv7v#_h_o&(m$vtbzc'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', ]
+ALLOWED_HOSTS = ['shyu1.herokuapp.com','shuyi.online']
 
 
 # Application definition
@@ -60,6 +61,7 @@ INTERNAL_IPS = ['127.0.0.1', '::1']
 MIDDLEWARE = [
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', 
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -94,15 +96,14 @@ WSGI_APPLICATION = 'bona_blog.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd10h3dvl0fgbhi',
-        'USER': 'edmbvfbzvwalrz',
-        'PASSWORD' : '9de077c8dbe8a2adcf9a8e3a2ef0bb8533363483875bbbe90542695ba5bca70d',
-        'HOST' : 'ec2-23-20-140-229.compute-1.amazonaws.com',
-        'PORT' : '5432'
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'heroku_d131021b19be49a',
+        'USER': 'b80525e9219d5f',
+        'PASSWORD' : 'b87f9708',
+        'HOST' : 'us-cdbr-east-06.cleardb.net',
+     
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -139,9 +140,13 @@ USE_L10N = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
-PRIJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(PRIJECT_ROOT, 'static'),
+STATIC_URL = '/staticfiles/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
+
+MEDIA_URL = '/mediafiles/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 django_heroku.settings(locals())
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "blog/static"),
