@@ -2,14 +2,13 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField
 
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    image = models.ImageField(default='profile-pic-default.jpg',
-                              upload_to='profile_pics')
-    banner_image = models.ImageField(default='slider-1.jpg',
-                                     upload_to='banner')
+    image = CloudinaryField('profile')
+    banner_image = CloudinaryField('banner')
     job_title = models.CharField(max_length=100)
     bio = models.CharField(max_length=100,
                            help_text="Short Bio (eg. I love cats and games)")

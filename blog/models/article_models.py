@@ -8,10 +8,12 @@ from django.utils.text import slugify
 # Third party app imports
 from taggit.managers import TaggableManager
 from ckeditor_uploader.fields import RichTextUploadingField
+from cloudinary.models import CloudinaryField
 
 # Blog application imports.
 from blog.utils.blog_utils import count_words, read_time
 from blog.models.category_models import Category
+
 
 
 class Article(models.Model):
@@ -33,8 +35,7 @@ class Article(models.Model):
     slug = models.SlugField()
     author = models.ForeignKey(User, on_delete=models.CASCADE,
                                related_name='articles')
-    image = models.ImageField(
-                              upload_to='article_pics')
+    image = CloudinaryField('img')
     image_credit = models.CharField(max_length=250, null=True, blank=True)
     body = RichTextUploadingField(blank=True)
     tags = TaggableManager(blank=True)

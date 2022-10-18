@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 import os
 import django_heroku
 import dj_database_url
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -50,9 +53,11 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'crispy_forms',
+    
 
     # My apps.
     'blog.apps.BlogConfig',
+    'cloudinary'
 
  ]
 
@@ -144,6 +149,11 @@ STATIC_URL = '/staticfiles/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
+cloudinary.config( 
+  cloud_name = "hv3p1pm6a", 
+  api_key = "454333541723272", 
+  api_secret = "aOpfL5Nhh9yPmrG1Uf5CRXUoCoA" 
+)
 
 MEDIA_URL = '/mediafiles/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
