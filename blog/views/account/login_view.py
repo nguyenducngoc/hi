@@ -30,19 +30,19 @@ class UserLoginView(View):
 
             if user:
                 login(request, user)
-                messages.success(request, f"Login Successful ! "
-                                          f"Welcome {user.username}.")
+                messages.success(request, f"Đăng nhập thành công!"
+                                          f"Chào mừng {user.username}.")
                 return redirect('blog:dashboard_home')
 
             else:
                 messages.error(request,
-                               f"Invalid Login details: {username}, {password} "
-                               f"are not valid username and password !!! Please "
-                               f"enter a valid username and password.")
+                               f"Thông tin đăng nhập không hợp lệ: {username}, {password} "
+                               f"tên người dùng và mật khẩu không hợp lệ !!! Xin vui lòng "
+                               f"nhập tên người dùng và mật khẩu lại.")
                 return render(request, self.template_name, self.context_object)
 
         else:
-            messages.error(request, f"Invalid username and password")
+            messages.error(request, f"Tên người dùng và mật khẩu không hợp lệ")
             return render(request, self.template_name, self.context_object)
 
 

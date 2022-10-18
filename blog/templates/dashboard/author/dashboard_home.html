@@ -3,7 +3,7 @@
 {% load only_hours %}
 
 {% block title %}
-    Home
+    Trang chủ
 {% endblock %}
 
 {% block stylesheets %}
@@ -19,14 +19,14 @@
                                     <div class="widget-body">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="state">
-                                                <h6>Articles Written</h6>
+                                                <h6>Các bài viết đã viết</h6>
                                                 <h2>{{ total_articles_written }}</h2>
                                             </div>
                                             <div class="icon">
                                                 <i class="ik ik-edit-2"></i>
                                             </div>
                                         </div>
-                                        <small class="text-small mt-10 d-block">Total Number Of Articles Written</small>
+                                        <small class="text-small mt-10 d-block">Tổng số bài viết đã viết</small>
                                     </div>
                                     <div class="progress progress-sm">
                                         <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
@@ -38,14 +38,14 @@
                                     <div class="widget-body">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="state">
-                                                <h6>Published Articles</h6>
+                                                <h6>Các bài viết đã đăng</h6>
                                                 <h2>{{ total_articles_published }}</h2>
                                             </div>
                                             <div class="icon">
                                                 <i class="ik ik-layers"></i>
                                             </div>
                                         </div>
-                                        <small class="text-small mt-10 d-block">Total Number Of Articles Published</small>
+                                        <small class="text-small mt-10 d-block">Tổng số bài viết đã đăng</small>
                                     </div>
                                     <div class="progress progress-sm">
                                         <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
@@ -57,14 +57,14 @@
                                     <div class="widget-body">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="state">
-                                                <h6>Views</h6>
+                                                <h6>Số lượt xem</h6>
                                                 <h2>{{ total_articles_views }}</h2>
                                             </div>
                                             <div class="icon">
                                                 <i class="ik ik-eye"></i>
                                             </div>
                                         </div>
-                                        <small class="text-small mt-10 d-block">Total Views For All Articles</small>
+                                        <small class="text-small mt-10 d-block">Tổng số lượt xem cho tất cả các bài viết</small>
                                     </div>
                                     <div class="progress progress-sm">
                                         <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
@@ -76,14 +76,14 @@
                                     <div class="widget-body">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="state">
-                                                <h6>Comments</h6>
+                                                <h6>Nhận xét</h6>
                                                 <h2>{{ total_articles_comments }}</h2>
                                             </div>
                                             <div class="icon">
                                                 <i class="ik ik-message-square"></i>
                                             </div>
                                         </div>
-                                        <small class="text-small mt-10 d-block">Total Comments For All Articles</small>
+                                        <small class="text-small mt-10 d-block">Tổng số nhận xét cho tất cả bài viết</small>
                                     </div>
                                     <div class="progress progress-sm">
                                         <div class="progress-bar bg-info" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
@@ -98,8 +98,8 @@
                                     <div class="page-header-title">
                                         <i class="ik ik-trending-up bg-success"></i>
                                         <div class="d-inline">
-                                            <h5>Recent Published Articles</h5>
-                                            <span>List of your recently published articles.</span>
+                                            <h5>Các bài viết gần đây</h5>
+                                            <span>Danh sách các bài viết đã đăng gần đây của bạn.</span>
                                         </div>
                                     </div>
                                 </div>
@@ -108,7 +108,7 @@
                                     <a
                                       href="{% url 'blog:home' %}" target="_blank"
                                       class="d-none d-sm-inline-block btn float-sm-right btn-sm btn-primary shadow-sm "
-                                      ><i class="fas fa-paper-plane fa-sm text-white-50 "></i> Visit Website</a>
+                                      ><i class="fas fa-paper-plane fa-sm text-white-50 "></i> Ghé thăm Website</a>
                                 </div>
                             </div>
                         </div>
@@ -120,7 +120,7 @@
                 <div class="col-md-12">
                         <div class="card shadow-sm">
                             <div class="card-header">
-                                <h4 class="title">Recent Published Articles</h4>
+                                <h4 class="title">Các bài viết đã đăng gần đây</h4>
                             </div>
                           <div class="card-body">
                             <div class="content">
@@ -142,13 +142,13 @@
                                                 <i class="fas fa-chevron-down" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 </i>
                                                 <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="{% url 'blog:article_update' slug=article.slug %}">Edit Article</a>
+                                                    <a class="dropdown-item" href="{% url 'blog:article_update' slug=article.slug %}">Chỉnh sửa bài viết</a>
                                                     <div class="dropdown-divider w-100" ></div>
-                                                    <a data-toggle="modal" data-target="#deleteModal" class="dropdown-item" href="javascript:void(0)">Delete Article</a>
+                                                    <a data-toggle="modal" data-target="#deleteModal" class="dropdown-item" href="javascript:void(0)">Xóa bài viết</a>
                                                 </div>
                                               </span>
                                             </div>
-                                            <a class="more-link" href="{% url 'blog:dashboard_article_detail' slug=article.slug %}">View details &rarr;</a>
+                                            <a class="more-link" href="{% url 'blog:dashboard_article_detail' slug=article.slug %}">Xem chi tiết &rarr;</a>
                                           <hr class="solid"><!-- Solid divider -->
                                         </div><!--//media-body-->
                                     </div><!--//media-->
@@ -157,7 +157,7 @@
                                       <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                           <div class="modal-header">
-                                              <h5 class="modal-title" id="exampleModalLabel"><b>Ready to Delete Article?</b></h5>
+                                              <h5 class="modal-title" id="exampleModalLabel"><b>Sẵn sàng xóa bài viết?</b></h5>
                                             <button
                                               class="close"
                                               type="button"
@@ -168,7 +168,7 @@
                                             </button>
                                           </div>
                                           <div class="modal-body">
-                                            Select "Delete Article" below if you want to delete the article.
+                                            Chọn "Xóa bài viết" bên dưới nếu bạn muốn xóa bài viết.
                                           </div>
                                           <div class="modal-footer">
                                             <button
@@ -176,9 +176,9 @@
                                               type="button"
                                               data-dismiss="modal"
                                             >
-                                              Cancel
+                                              Hủy bỏ
                                             </button>
-                                            <a class="btn btn-danger" href="{% url 'blog:article_delete' slug=article.slug %}">Delete Article</a>
+                                            <a class="btn btn-danger" href="{% url 'blog:article_delete' slug=article.slug %}">Xóa bài viết</a>
                                           </div>
                                         </div>
                                       </div>
@@ -186,7 +186,7 @@
                          {% endfor %}
                             </div>
                      {% else %}
-                               <center><div class="alert alert-info"><b>No Published Articles</b></div></center>
+                               <center><div class="alert alert-info"><b>Không có bài viết nào được đăng</b></div></center>
                      {% endif %}
                         </section>
 

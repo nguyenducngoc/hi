@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-    Update Article
+    Cập nhật bài viết
 {% endblock title %}
 
 
@@ -21,7 +21,7 @@
 
             <div class="card shadow-sm mb-3 w-100">
 
-              <h4 class="card-header">Update Article</h4>
+              <h4 class="card-header">Cập nhật bài viết</h4>
 
                <div class="card-body">
 
@@ -30,33 +30,33 @@
             {% csrf_token %}
 
                 <div class="form-group">
-                           <label for="articleTitle">Article Title*</label>
+                           <label for="articleTitle">Tiêu đề bài viết *</label>
                                     <h6 class="text-danger">{{ article_update_form.title.errors }}</h6>
                                     {{ article_update_form.title }}
                               </div>
                               <div class="form-group">
-                                <label for="articleCategory">Select Category*</label>
+                                <label for="articleCategory">Chọn danh mục *</label>
                                   <h6 class="text-danger">{{ article_update_form.category.errors }}</h6>
                                     {{ article_update_form.category }}
                               </div>
                               <div class="form-group">
-                                <label for="articleImage">Upload Article Image*</label>
+                                <label for="articleImage">Tải lên hình ảnh bài viết *</label>
                                   <h6 class="text-danger">{{ article_update_form.image.errors }}</h6>
                                   Current image: <a class="text-danger" href="{{ article.image.url }}">{{ article.image }}</a>
                                     {{ article_update_form.image }}
                               </div>
                               <div class="form-group">
-                                <label for="image_credit">Image Credit</label>
+                                <label for="image_credit">Chú thích cho ảnh*</label>
                                     <h6 class="text-danger">{{ article_update_form.image_credit.errors }}</h6>
                                     {{ article_update_form.image_credit }}
                               </div>
                               <div class="form-group">
-                                  <label for="article-content">Content*</label>
+                                  <label for="article-content">Nội dung*</label>
                                   <h6 class="text-danger">{{ article_update_form.body.errors }}</h6>
                                   {{ article_update_form.body }}
                               </div>
                               <div class="form-group">
-                                <label for="tags">Enter Tags*</label>
+                                <label for="tags">Nhập thẻ *</label>
                                   <h6 class="text-danger">{{ article_update_form.tags.errors }}</h6>
                                   <input type="text"  data-role="tagsinput"
                                          class="form-control" id="tags" name="tags"
@@ -65,7 +65,7 @@
                                   A comma-separated list of tags.</small>
                               </div>
                               <div class="form-group">
-                                <label for="articleImage">Status*</label>
+                                <label for="articleImage">Trạng thái*</label>
                                   <h6 class="text-danger">{{ article_update_form.status.errors }}</h6>
                                    {{ article_update_form.status }}
                               </div>
@@ -73,10 +73,10 @@
                 <div class="form-group float-right">
 
                     <button class="btn btn-dark" name="action"
-                            value="SAVE_AS_DRAFT" type="submit">SAVE AS DRAFT</button>
+                            value="SAVE_AS_DRAFT" type="submit">LƯU LÀM BẢN THẢO</button>
 
                     <button class="btn btn-primary" name="action" value="PUBLISH"
-                            type="submit">PUBLISH</button>
+                            type="submit">CÔNG BỐ</button>
                 </div>
         </form>
                </div>

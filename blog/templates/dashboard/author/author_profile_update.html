@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-    Update Profile
+    Cập nhật hồ sơ
 {% endblock title %}
 
 {% block stylesheets %}
@@ -18,8 +18,8 @@
                 <div class="page-header-title">
                     <i class="ik ik-file-text bg-blue"></i>
                     <div class="d-inline">
-                        <h5>Profile Update</h5>
-                        <span>Update your profile.</span>
+                        <h5>Cập nhật hồ sơ</h5>
+                        <span>Cập nhật hồ sơ của bạn.</span>
                     </div>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                 <div class="col-md-12">
                         <div class="card shadow-sm">
                             <div class="card-header">
-                                <h4 class="title">Update Profile</h4>
+                                <h4 class="title">Cập nhật hồ sơ</h4>
                             </div>
                           <div class="card-body">
                             <div class="content">
@@ -46,14 +46,14 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label for="email">Email address</label>
+                                                <label for="email">Địa chỉ Email</label>
                                                 <h6>{{ contact_form.email.errors }}</h6>
                                                 {{ user_form.email }}
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label>Job Title</label>
+                                                <label>Công việc hiện tại</label>
                                                 <h6>{{ contact_form.job_title.errors }}</h6>
                                                 {{ profile_form.job_title }}
                                             </div>
@@ -63,14 +63,14 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>First Name</label>
+                                                <label>Tên</label>
                                                 <h6>{{ contact_form.first_name.errors }}</h6>
                                                 {{ user_form.first_name }}
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Last Name</label>
+                                                <label>Họ</label>
                                                 <h6>{{ contact_form.last_name.errors }}</h6>
                                                 {{ user_form.last_name }}
                                             </div>
@@ -80,7 +80,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Address</label>
+                                                <label>Địa chỉ</label>
                                                 <h6>{{ contact_form.address.errors }}</h6>
                                                 {{ profile_form.address }}
                                             </div>
@@ -90,9 +90,9 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Profile Image</label>
+                                                <label>Hình ảnh hồ sơ cá nhân</label>
                                                 <div>
-                                                    <span class="text-danger">Current image:</span>
+                                                    <span class="text-danger">Hình ảnh hiện tại:</span>
                                                     <a href="{{ user.profile.image.url }}">
                                                 {{ user.profile.image.url }}</a><br>
                                                 </div>
@@ -107,7 +107,7 @@
                                             <div class="form-group">
                                                 <label>Profile Banner</label>
                                                 <div>
-                                                    <span class="text-danger">Current banner:</span>
+                                                    <span class="text-danger">Banner hiện tại:</span>
                                                     <a href="{{ user.profile.banner_image.url }}">
                                                 {{ user.profile.banner_image.url }}</a><br>
                                                 </div>
@@ -120,21 +120,21 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>City</label>
+                                                <label>Thành phố</label>
                                                 <h6>{{ contact_form.city.errors }}</h6>
                                                 {{ profile_form.city }}
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>Country</label>
+                                                <label>Nước</label>
                                                 <h6>{{ contact_form.country.errors }}</h6>
                                                 {{ profile_form.country }}
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>Postal Code</label>
+                                                <label>Mã bưu điện</label>
                                                 <h6>{{ contact_form.zip_code.errors }}</h6>
                                                 {{ profile_form.zip_code }}
                                             </div>
@@ -144,7 +144,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>About Me</label>
+                                                <label>Hướng dẫn</label>
                                                 <h6>{{ contact_form.bio.errors }}</h6>
                                                 {{ profile_form.bio }}
                                             </div>
@@ -181,7 +181,7 @@
                                         </div>
                                     </div>
 
-                                    <button type="submit" class="btn btn-info btn-fill float-right">Update Profile</button>
+                                    <button type="submit" class="btn btn-info btn-fill float-right">Cập nhật hồ sơ</button>
                                     <div class="clearfix"></div>
                                 </form>
                             </div>

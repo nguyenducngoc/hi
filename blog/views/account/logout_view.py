@@ -13,6 +13,6 @@ class UserLogoutView(View):
 
     def get(self, request):
         logout(request)
-        messages.success(request, "You have successfully logged out.")
+        messages.success(request, "Bạn đã đăng xuất thành công.")
         return render(request, self.template_name)
 

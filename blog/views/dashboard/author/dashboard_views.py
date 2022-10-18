@@ -47,8 +47,8 @@ class DashboardHomeView(LoginRequiredMixin, View):
 
 class ArticleWriteView(LoginRequiredMixin, View):
 
-    SAVE_AS_DRAFT = "SAVE_AS_DRAFT"
-    PUBLISH = "PUBLISH"
+    SAVE_AS_DRAFT = "LƯU BẢN THẢO"
+    PUBLISH = "XUẤT BẢN"
 
     template_name = 'dashboard/author/article_create_form.html'
     context_object = {}
@@ -72,11 +72,11 @@ class ArticleWriteView(LoginRequiredMixin, View):
             if article_status == Article.PUBLISHED:
                 self.context_object["article_create_form"] = article_create_form
                 messages.error(request,
-                               "You saved the article as draft but selected "
-                               "the status as 'PUBLISHED'. You can't save an "
-                               "article whose status is 'PUBLISHED' as draft. "
-                               "Please change the status to 'DRAFT' before you "
-                               "save the article as draft.")
+                               "Bạn đã lưu bài viết dưới dạng bản nháp nhưng "
+                               "đã chọn trạng thái là 'ĐÃ XUẤT BẢN'. Bạn không "
+                               "thể lưu một bài viết có trạng thái 'ĐÃ XUẤT BẢN' "
+                               "dưới dạng bản nháp. Vui lòng thay đổi trạng thái thành"
+                               "'BẢN THẢO' trước bạn lưu bài viết dưới dạng bản nháp.")
                 return render(request, self.template_name, self.context_object)
 
             if article_create_form.is_valid():
@@ -87,11 +87,11 @@ class ArticleWriteView(LoginRequiredMixin, View):
                 new_article.save()
                 article_create_form.save_m2m()
 
-                messages.success(request, f"Article drafted successfully.")
+                messages.success(request, f"Bài viết được soạn thảo thành công.")
                 return redirect("blog:drafted_articles")
 
             self.context_object["article_create_form"] = article_create_form
-            messages.error(request, "Please fill required fields")
+            messages.error(request, "Vui lòng điền đầy đủ thông tin")
             return render(request, self.template_name, self.context_object)
 
         if action == self.PUBLISH:
@@ -100,12 +100,12 @@ class ArticleWriteView(LoginRequiredMixin, View):
                 self.context_object["article_create_form"] = article_create_form
 
                 messages.error(request,
-                               "You clicked on 'PUBLISH' to publish the article"
-                               " but selected the status as 'DRAFT'. "
-                               "You can't Publish an article whose status is "
-                               "'DRAFT'. Please change the status to "
-                               "'PUBLISHED' before you can Publish the "
-                               "article.")
+                               "Bạn đã nhấp vào 'PUBLISH' để xuất bản bài viết"
+                               "nhưng lại chọn trạng thái là 'Soạn thảo'"
+                               "Bạn không thể Xuất bản một bài viết có trạng thái "
+                               "là'BẢN THẢO'. Vui lòng thay đổi trạng thái thành "
+                               "'ĐÃ XUẤT BẢN' trước khi bạn có thể Xuất bản bài viết "
+                               )
                 return render(request, self.template_name, self.context_object)
 
             if article_create_form.is_valid():
@@ -114,11 +114,11 @@ class ArticleWriteView(LoginRequiredMixin, View):
                 new_article.save()
                 article_create_form.save_m2m()
 
-                messages.success(self.request, f"Article published successfully.")
+                messages.success(self.request, f"Bài viết đã được xuất bản")
                 return redirect(to="blog:dashboard_article_detail", slug=new_article.slug)
 
             self.context_object["article_create_form"] = article_create_form
-            messages.error(request, "Please fill required fields")
+            messages.error(request, "Vui lòng điền đầy đủ thông tin")
             return render(request, self.template_name, self.context_object)
 
 
@@ -152,15 +152,15 @@ class ArticleUpdateView(LoginRequiredMixin, View):
             if article_status == Article.PUBLISHED:
                 self.context_object["article_update_form"] = article_update_form
                 messages.error(request,
-                               "You saved the article as draft but selected "
-                               "the status as 'PUBLISHED'. You can't save an "
-                               "article whose status is 'PUBLISHED' as draft. "
-                               "Please change the status to 'DRAFT' before you "
-                               "save the article as draft.")
+                               "Bạn đã lưu bài viết dưới dạng soạn thảo nhưng  "
+                               "đã được chọn trạng thái là 'ĐÃ XUẤT BẢN'. Bạn "
+                               "không thể lưu bài viết có trạng thái 'ĐÃ XUẤT BẢN'"
+                               "dưới dạng bản nháp. Vui lòng thay đổi trạng thái thành"
+                               "'BẢN THẢO' trước bạn lưu bài viết dưới dạng bản nháp.")
                 return render(request, self.template_name, self.context_object)
 
             if not request.user == old_article.author.username:
-                messages.error(request=self.request, message="You do not have permission to update this article.")
+                messages.error(request=self.request, message="Bạn không có quyền cập nhật bài viết này.")
                 return redirect(to="blog:written_articles")
 
             if article_update_form.is_valid():
@@ -171,11 +171,11 @@ class ArticleUpdateView(LoginRequiredMixin, View):
                 updated_article.save()
                 article_update_form.save_m2m()
 
-                messages.success(request, f"Article drafted successfully.")
+                messages.success(request, f"Bài viết đã được soạn thảo thành công")
                 return redirect("blog:drafted_articles")
 
             self.context_object["article_update_form"] = article_update_form
-            messages.error(request, "Please fill required fields")
+            messages.error(request, "Vui lòng điền đầy đủ thông tin")
             return render(request, self.template_name, self.context_object)
 
         if action == self.PUBLISH:
@@ -184,12 +184,12 @@ class ArticleUpdateView(LoginRequiredMixin, View):
                 self.context_object["article_update_form"] = article_update_form
 
                 messages.error(request,
-                               "You clicked on 'PUBLISH' to publish the article"
-                               " but selected the status as 'DRAFT'. "
-                               "You can't Publish an article whose status is "
-                               "'DRAFT'. Please change the status to "
-                               "'PUBLISHED' before you can Publish the "
-                               "article.")
+                               "Bạn đã nhấp vào 'PUBLISH' để xuất bản bài viết"
+                               " nhưng đã chọn trạng thái là 'BẢN THẢO'. "
+                               "Bạn không thể xuất bản một bài viết có trạng "
+                               "thái là 'DỰ THẢO'. Vui lòng thay đổi trạng thái "
+                               "thành 'ĐÃ XUẤT BẢN' trước khi bạn có thể Xuất bản "
+                               "bài viết.")
                 return render(request, self.template_name, self.context_object)
 
             if article_update_form.is_valid():
@@ -201,11 +201,11 @@ class ArticleUpdateView(LoginRequiredMixin, View):
                 updated_article.save()
                 article_update_form.save_m2m()
 
-                messages.success(self.request, f"Article updated successfully.")
+                messages.success(self.request, f"Bài viết đã được cập nhật.")
                 return redirect(to="blog:dashboard_article_detail", slug=updated_article.slug)
 
             self.context_object["article_update_form"] = article_update_form
-            messages.error(request, "Please fill required fields")
+            messages.error(request, "Vui lòng điền đầy đủ thông tin")
             return render(request, self.template_name, self.context_object)
 
 
@@ -225,13 +225,13 @@ class ArticleDeleteView(LoginRequiredMixin, View):
         article = get_object_or_404(Article, slug=self.kwargs.get("slug"))
 
         if not self.request.user.username == article.author.username:
-            messages.error(request=self.request, message="You do not have permission to delete this article.")
+            messages.error(request=self.request, message="Bạn không có quyền xóa bài viết này.")
             return HttpResponseRedirect(self.request.META.get('HTTP_REFERER', '/'))
 
         article.deleted = True
         article.save()
 
-        messages.success(request=self.request, message="Article Deleted Successfully")
+        messages.success(request=self.request, message="Đã xóa bài viết")
         return redirect(to='blog:deleted_articles')
 
 
@@ -274,7 +274,7 @@ class ArticlePublishView(LoginRequiredMixin, View):
         article.date_updated = timezone.now()
         article.save()
 
-        messages.success(request, f"Article Published successfully.")
+        messages.success(request, f"Đã xuất bản bài viết thành công.")
         return redirect('blog:dashboard_article_detail', slug=article.slug)
 
 

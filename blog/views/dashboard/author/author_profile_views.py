@@ -52,8 +52,8 @@ class AuthorProfileUpdateView(LoginRequiredMixin, View):
             user_form.save()
             profile_form.save()
 
-            messages.success(request, f'Your account has successfully '
-                                      f'been updated!')
+            messages.success(request, f'Tài khoản của bạn đã '
+                                      f'cập nhật')
             return redirect('blog:author_profile_details')
 
         else:
@@ -63,7 +63,7 @@ class AuthorProfileUpdateView(LoginRequiredMixin, View):
             self.context_object['user_form'] = user_form
             self.context_object['profile_form'] = profile_form
 
-            messages.error(request, f'Invalid data. Please provide valid data.')
+            messages.error(request, f'Thông tin không hợp lệ. Vui lòng cung cấp lại thông tin.')
             return render(request, self.template_name, self.context_object)
 
 

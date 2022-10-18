@@ -108,6 +108,7 @@ urlpatterns = [
         view=AuthorArticlesListView.as_view(),
         name='author_articles'
      ),
+    # HELP URL
 
 
     # CATEGORY URLS #
@@ -203,6 +204,7 @@ urlpatterns = [
         view=DashboardHomeView.as_view(),
         name="dashboard_home"
     ),
+
 
     # author/profile/details
     path(

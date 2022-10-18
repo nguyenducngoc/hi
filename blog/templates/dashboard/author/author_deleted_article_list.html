@@ -20,8 +20,8 @@
                 <div class="page-header-title">
                     <i class="ik ik-x-circle bg-red"></i>
                     <div class="d-inline">
-                        <h5>Deleted Articles</h5>
-                        <span>List of all your deleted articles.</span>
+                        <h5>Các bài viết đã xóa</h5>
+                        <span>Danh sách tất cả các bài viết đã xóa của bạn.</span>
                     </div>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                 <div class="col-md-12">
                         <div class="card shadow-sm">
                             <div class="card-header">
-                                <h4 class="title">List Of Deleted Articles</h4>
+                                <h4 class="title">Danh sách các bài viết đã xóa</h4>
                             </div>
                           <div class="card-body">
                             <div class="content">
@@ -58,7 +58,7 @@
                                          {% endfor %}
                                             </div>
                                      {% else %}
-                                               <center><div class="alert alert-info"><b>No Deleted Articles</b></div></center>
+                                               <center><div class="alert alert-info"><b>Không có bài viết nào bị xóa</b></div></center>
                                      {% endif %}
                                         </section>
 
@@ -70,11 +70,11 @@
                                       {% if deleted_articles_list.has_previous %}
                                         <li class="badge badge-pill badge-secondary">
                                           <a class="badge text-white" href="?page={{ deleted_articles_list.previous_page_number }}"
-                                             tabindex="-1">Previous</a>
+                                             tabindex="-1">Trước</a>
                                         </li>
                                       {% else %}
                                         <li class="badge badge-pill badge-secondary disabled">
-                                         <span class="badge badge-pill badge-secondary">Previous</span>
+                                         <span class="badge badge-pill badge-secondary">Trước</span>
                                         </li>
                                          {% endif %}
                                         {% for i in deleted_articles_list.paginator.page_range %}
@@ -93,11 +93,11 @@
                                         {% endfor %}
                                         {% if deleted_articles_list.has_next %}
                                             <li class="badge badge-pill badge-secondary">
-                                          <a class="badge text-white" href="?page={{ deleted_articles_list.next_page_number }}">Next</a>
+                                          <a class="badge text-white" href="?page={{ deleted_articles_list.next_page_number }}">Sau</a>
                                         </li>
                                         {% else %}
                                          <li class="badge badge-pill badge-secondary disabled">
-                                         <span class="badge badge-pill badge-secondary">Next</span>
+                                         <span class="badge badge-pill badge-secondary">Sau</span>
                                         </li>
                                           {% endif %}
                                       </ul>

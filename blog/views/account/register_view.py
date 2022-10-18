@@ -36,7 +36,7 @@ class UserRegisterView(View):
             user.save()
 
             current_site = get_current_site(request)
-            subject = 'Activate Your Bona Blog Account'
+            subject = 'Kích hoạt tài khoản Shuyi Bolg của bạn'
             message = render_to_string('account/account_activation_email.html',
             {
                 'user': user,
@@ -49,7 +49,7 @@ class UserRegisterView(View):
             return redirect('blog:account_activation_sent')
 
         else:
-            messages.error(request, "Please provide valid information.")
+            messages.error(request, "Vui lòng cung cấp thông tin hợp lệ.")
             # Redirect user to register page
             return render(request, self.template_name, self.context_object)
 

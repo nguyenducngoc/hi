@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-    Create Article
+  Tạo bài viết
 {% endblock title %}
 
 {% block stylesheets %}
@@ -20,57 +20,57 @@
 
             <div class="card shadow-sm mb-3 w-100">
 
-            <h4 class="card-header">Write A New Article</h4>
+            <h4 class="card-header">Viết một bài viết mới</h4>
 
             <div class="card-body">
                     <form method="POST" action="{% url 'blog:article_write' %}" id="articleForm" enctype="multipart/form-data"
                           novalidate>
                         {% csrf_token %}
                               <div class="form-group">
-                                <label for="articleTitle">Article Title*</label>
+                                <label for="articleTitle">Tiêu đề bài viết *</label>
                                     <h6 class="text-danger">{{ article_create_form.title.errors }}</h6>
                                     {{ article_create_form.title }}
                               </div>
                               <div class="form-group">
-                                <label for="articleCategory">Select Category*</label>
+                                <label for="articleCategory">Chọn danh mục *</label>
                                   <h6 class="text-danger">{{ article_create_form.category.errors }}</h6>
                                     {{ article_create_form.category }}
                               </div>
                               <div class="form-group">
-                                <label for="articleImage">Upload Article Image*</label>
+                                <label for="articleImage">Tải lên hình ảnh bài viết *</label>
                                   <h6 class="text-danger">{{ article_create_form.image.errors }}</h6>
                                     {{ article_create_form.image }}
                               </div>
                               <div class="form-group">
-                                <label for="image_credit">Image Credit</label>
+                                <label for="image_credit">Phần giới thiệu cho hình ảnh*</label>
                                     <h6 class="text-danger">{{ article_create_form.image_credit.errors }}</h6>
                                     {{ article_create_form.image_credit }}
                               </div>
                               <div class="form-group">
-                                  <label for="article-content">Content*</label>
+                                  <label for="article-content">Nội dung*</label>
                                   <h6 class="text-danger">{{ article_create_form.body.errors }}</h6>
                                   {{ article_create_form.body }}
                               </div>
                               <div class="form-group">
-                                <label for="articleTags">Enter Tags*</label>
+                                <label for="articleTags">Nhập thẻ *</label>
                                   <h6 class="text-danger">{{ article_create_form.tags.errors }}</h6>
                                    {{ article_create_form.tags }}
 
                               <small id="hint_id_tags" class="form-text text-muted">
-                                  A comma-separated list of tags.</small>
+                                Danh sách các thẻ được phân tách bằng dấu phẩy.</small>
                               </div>
                               <div class="form-group">
-                                <label for="articleImage">Status*</label>
+                                <label for="articleImage">Trạng thái*</label>
                                   <h6 class="text-danger">{{ article_create_form.status.errors }}</h6>
                                    {{ article_create_form.status }}
                               </div>
                             <div class="form-group float-right">
-                                <button type="reset" class="btn btn-danger">Reset Form</button>
+                                <button type="reset" class="btn btn-danger">Đặt lại tất cả</button>
                                 <button class="btn btn-dark" name="action"
-                                        value="SAVE_AS_DRAFT" type="submit">SAVE AS DRAFT</button>
+                                        value="SAVE_AS_DRAFT" type="submit">LƯU LÀM BẢN THẢO</button>
 
                                 <button class="btn btn-primary" name="action" value="PUBLISH"
-                                        type="submit">PUBLISH</button>
+                                        type="submit">XUẤT BẢN</button>
                             </div>
                     </form>
             </div>

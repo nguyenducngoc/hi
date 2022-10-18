@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Bona Dashboard | {% block title %}{% endblock title %}</title>
+        <title>Shuyi Dashboard | {% block title %}{% endblock title %}</title>
         <meta name="description" content="Bona Blog">
         <meta name="keywords" content="Blogging, Blog">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -76,10 +76,10 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                                     <a class="dropdown-item" href="{% url 'blog:author_profile_details' %}">
-                                        <i class="ik ik-user dropdown-icon"></i> Profile</a>
-                                    <a class="dropdown-item" href="#"><i class="ik ik-settings dropdown-icon"></i> Settings</a>
+                                        <i class="ik ik-user dropdown-icon"></i> Trang cá nhân</a>
+                                    <a class="dropdown-item" href="#"><i class="ik ik-settings dropdown-icon"></i> Cài đặt</a>
                                     <a class="dropdown-item" href="" data-toggle="modal" data-target="#logoutModal">
-                                        <i class="ik ik-power dropdown-icon"></i> Logout</a>
+                                        <i class="ik ik-power dropdown-icon"></i> Đăng xuất</a>
                                 </div>
                             </div>
                          {% endif %}
@@ -110,54 +110,54 @@
                         <div class="nav-container">
                             <nav id="main-menu-navigation" class="navigation-main">
 
-                                <div class="nav-lavel">Home</div>
+                                <div class="nav-lavel">Trang chủ</div>
                                 <div class="nav-item">
-                                    <a href="{% url 'blog:dashboard_home' %}"><i class="ik ik-home"></i><span>Home</span></a>
+                                    <a href="{% url 'blog:dashboard_home' %}"><i class="ik ik-home"></i><span>Trang chủ</span></a>
                                 </div>
-                                <div class="nav-lavel">Article</div>
+                                <div class="nav-lavel">Bài viết</div>
                                 <div class="nav-item has-sub">
-                                    <a href="javascript:void(0)"><i class="fa fa-newspaper"></i><span>Article</span></a>
+                                    <a href="javascript:void(0)"><i class="fa fa-newspaper"></i><span>Bài viết</span></a>
                                     <div class="submenu-content">
                                         <a href="{% url 'blog:article_write' %}" class="menu-item">
-                                            <i class="ik ik-edit-2"></i><span>Write A New Article</span></a>
+                                            <i class="ik ik-edit-2"></i><span>Viết bài mới</span></a>
                                     </div>
                                 </div>
-                                <div class="nav-lavel">Utilities</div>
+                                <div class="nav-lavel">Tiện ích</div>
                                 <div class="nav-item has-sub">
-                                    <a href="javascript:void(0)"><i class="ik ik-list"></i><span>List</span></a>
+                                    <a href="javascript:void(0)"><i class="ik ik-list"></i><span>Danh sách</span></a>
                                     <div class="submenu-content">
                                         <a href="{% url 'blog:written_articles' %}" class="menu-item">
-                                            <i class="ik ik-edit-1"></i><span>Written Articles</span></a>
+                                            <i class="ik ik-edit-1"></i><span>Các bài viết đã viết</span></a>
                                         <a href="{% url 'blog:published_articles' %}" class="menu-item">
-                                            <i class="ik ik-layers"></i><span>Published Articles</span></a>
+                                            <i class="ik ik-layers"></i><span>Các bài viết đã đăng</span></a>
                                         <a href="{% url 'blog:drafted_articles' %}" class="menu-item">
-                                            <i class="ik ik-file-text"></i><span>Drafted Articles</span></a>
+                                            <i class="ik ik-file-text"></i><span>Các bản soạn thảo</span></a>
                                         <a href="{% url 'blog:deleted_articles' %}" class="menu-item"><i class="ik ik-x-circle"></i>
-                                            <span>Deleted Articles</span></a>
+                                            <span>Các bài viết đã xóa</span></a>
                                     </div>
                                 </div>
 
-                                <div class="nav-lavel">Category</div>
+                                <div class="nav-lavel">Danh mục</div>
                                 <div class="nav-item">
                                     <a href="{% url 'blog:category_create' %}"><i class="ik ik-navigation"></i>
-                                        <span>Submit New Category</span></a>
+                                        <span>Thêm danh mục mới</span></a>
                                 </div>
 
 
-                                <div class="nav-lavel">Accounts</div>
+                                <div class="nav-lavel">Tài khoản</div>
                                 <div class="nav-item has-sub">
-                                    <a href="javascript:void(0)"><i class="ik ik-users"></i><span>Profile</span></a>
+                                    <a href="javascript:void(0)"><i class="ik ik-users"></i><span>Trang cá nhân</span></a>
                                     <div class="submenu-content">
                                         <a href="{% url 'blog:author_profile_details' %}" class="menu-item">
-                                            <i class="ik ik-user"></i><span>Your Profile</span></a>
+                                            <i class="ik ik-user"></i><span>Trang cá nhân của bạn</span></a>
                                         <a href="{% url 'blog:author_profile_update' %}" class="menu-item">
-                                            <i class="ik ik-user-plus"></i><span>Update Profile</span></a>
+                                            <i class="ik ik-user-plus"></i><span>Cập nhật</span></a>
                                     </div>
                                 </div>
 
-                                <div class="nav-lavel">About</div>
+                                <div class="nav-lavel">Hướng dẫn</div>
                                 <div class="nav-item">
-                                    <a href="javascript:void(0)"><i class="ik ik-info"></i><span>About</span></a>
+                                    <a href="javascript:void(0)"><i class="ik ik-info"></i><span>Hướng dẫn</span></a>
                                 </div>
                             </nav>
                         </div>
@@ -219,27 +219,27 @@
                                 </div>
                                 <div class="app-item dropdown">
                                     <a href="#" class="dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                                       aria-haspopup="true" aria-expanded="false"><i class="ik ik-book"></i><span>Articles</span></a>
+                                       aria-haspopup="true" aria-expanded="false"><i class="ik ik-book"></i><span>Bài viết</span></a>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <a class="dropdown-item" href="{% url 'blog:article_write' %}">Write A New Article</a>
-                                        <a class="dropdown-item" href="{% url 'blog:published_articles' %}">List of Published Articles</a>
-                                        <a class="dropdown-item" href="{% url 'blog:drafted_articles' %}">List of Drafted Articles</a>
-                                        <a class="dropdown-item" href="{% url 'blog:deleted_articles' %}">List of Deleted Articles</a>
+                                        <a class="dropdown-item" href="{% url 'blog:article_write' %}">Viết bài mới</a>
+                                        <a class="dropdown-item" href="{% url 'blog:published_articles' %}">Danh sách các bài đã đăng</a>
+                                        <a class="dropdown-item" href="{% url 'blog:drafted_articles' %}">Danh sách soạn thảo</a>
+                                        <a class="dropdown-item" href="{% url 'blog:deleted_articles' %}">Danh sách các bài đã xóa</a>
                                     </div>
                                 </div>
                                 <div class="app-item dropdown">
                                     <a href="#" class="dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                                       aria-haspopup="true" aria-expanded="false"><i class="ik ik-users"></i><span>Accounts</span></a>
+                                       aria-haspopup="true" aria-expanded="false"><i class="ik ik-users"></i><span>Tài khoản</span></a>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <a class="dropdown-item" href="{% url 'blog:author_profile_details' %}">Profile</a>
-                                        <a class="dropdown-item" href="{% url 'blog:author_profile_update' %}">Update Profile</a>
+                                        <a class="dropdown-item" href="{% url 'blog:author_profile_details' %}">Trang cá nhân</a>
+                                        <a class="dropdown-item" href="{% url 'blog:author_profile_update' %}">Cập nhật</a>
                                     </div>
                                 </div>
                                 <div class="app-item">
-                                    <a href="#"><i class="ik ik-settings"></i><span>Settings</span></a>
+                                    <a href="#"><i class="ik ik-settings"></i><span>Cài đặt</span></a>
                                 </div>
                                 <div class="app-item">
-                                    <a href="{% url 'blog:home' %}" target="_blank"><i class="ik ik-send"></i><span>Visit Website</span></a>
+                                    <a href="{% url 'blog:home' %}" target="_blank"><i class="ik ik-send"></i><span>Ghé thăm Website</span></a>
                                 </div>
                             </div>
                         </div>
@@ -261,7 +261,7 @@
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">Bạn sẽ rời đi?</h5>
                   <button
                     class="close"
                     type="button"
@@ -272,7 +272,7 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  Select "Logout" below if you are ready to end your current session.
+                    Chọn "Đăng xuất" bên dưới nếu bạn đã sẵn sàng kết thúc phiên hiện tại của mình.
                 </div>
                 <div class="modal-footer">
                   <button
@@ -280,9 +280,9 @@
                     type="button"
                     data-dismiss="modal"
                   >
-                    Cancel
+                    Hủy bỏ
                   </button>
-                  <a class="btn btn-danger" href="{% url 'blog:logout' %}">Logout</a>
+                  <a class="btn btn-danger" href="{% url 'blog:logout' %}">Đăng xuất</a>
                 </div>
               </div>
             </div>
