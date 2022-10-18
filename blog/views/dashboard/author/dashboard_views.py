@@ -47,8 +47,8 @@ class DashboardHomeView(LoginRequiredMixin, View):
 
 class ArticleWriteView(LoginRequiredMixin, View):
 
-    SAVE_AS_DRAFT = "LƯU BẢN THẢO"
-    PUBLISH = "XUẤT BẢN"
+    SAVE_AS_DRAFT = "SAVE_AS_DRAFT"
+    PUBLISH = "PUBLISH"
 
     template_name = 'dashboard/author/article_create_form.html'
     context_object = {}
@@ -104,8 +104,7 @@ class ArticleWriteView(LoginRequiredMixin, View):
                                "nhưng lại chọn trạng thái là 'Soạn thảo'"
                                "Bạn không thể Xuất bản một bài viết có trạng thái "
                                "là'BẢN THẢO'. Vui lòng thay đổi trạng thái thành "
-                               "'ĐÃ XUẤT BẢN' trước khi bạn có thể Xuất bản bài viết "
-                               )
+                               "'ĐÃ XUẤT BẢN' trước khi bạn có thể Xuất bản bài viết ")
                 return render(request, self.template_name, self.context_object)
 
             if article_create_form.is_valid():
