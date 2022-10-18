@@ -16,14 +16,6 @@ class CommentForm(ModelForm):
                                      'placeholder': "Enter your name",
                                      'aria-invalid': "true"
                                      }),
-
-            'email': EmailInput(attrs={'aria-required': "true",
-                                       'name': "contact-form-email",
-                                       'class': "form-control",
-                                       'placeholder': "Enter your email",
-                                       'aria-invalid': "true",
-                                       }),
-
             'comment': Textarea(attrs={'name': "contact-form-message",
                                        'rows': "2",
                                        'class': "text-area-messge form-control",
