@@ -21,18 +21,6 @@ from blog.forms.account.register_forms import UserRegisterForm
 #from django.core.mail import send_mail
 #from django.conf import settings
 
-import threading
-
-
-class EmailThread(threading.Thread):
-
-    def __init__(self, email_message):
-        self.email_message = email_message
-        threading.Thread.__init__(self)
-
-    def run(self):
-        self.email_message.send()
-
 class UserRegisterView(View):
     """
       View to let users register
@@ -54,31 +42,21 @@ class UserRegisterView(View):
             user.is_active = True
             user.save()
 
-            #current_site = get_current_site(request)
-            #subject = 'Kích hoạt tài khoản Shuyi Blog của bạn'
-            #message = render_to_string('account/account_activation_email.html',
-            #{
-            #    'user': user,
-            #    'domain': current_site.domain,
-            #    'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-            #    'token': account_activation_token.make_token(user),
-            #})
-            #email_mess = EmailMessage(
-            #   subject,
-            #    message,
-            #    'nguyenducngoc167@gmail.com',
-            #    to=[email],
-            #)
-            #recipient_list = [user.email,]
-            #send_mail(subject,message,'walapa001@gmail.com',recipient_list)
-            #email_mess.send()
-            #EmailThread(email_mess).start()
-            #user.email_user(subject, message)
-            
+            current_site = get_current_site(request)
+            subject = 'Activate Your Bona Blog Account'
+            message = render_to_string('account/account_activation_email.html',
+            {
+                'user': user,
+                'domain': current_site.domain,
+                'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+                'token': account_activation_token.make_token(user),
+            })
+            user.email_user(subject, message)
+
             return redirect('blog:account_activation_sent')
 
         else:
-            messages.error(request, "Vui lòng cung cấp thông tin hợp lệ.")
+            messages.error(request, "Please provide valid information.")
             # Redirect user to register page
             return render(request, self.template_name, self.context_object)
 
