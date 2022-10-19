@@ -54,15 +54,15 @@ class UserRegisterView(View):
             user.is_active = True
             user.save()
 
-            current_site = get_current_site(request)
-            subject = 'Kích hoạt tài khoản Shuyi Blog của bạn'
-            message = render_to_string('account/account_activation_email.html',
-            {
-                'user': user,
-                'domain': current_site.domain,
-                'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-                'token': account_activation_token.make_token(user),
-            })
+            #current_site = get_current_site(request)
+            #subject = 'Kích hoạt tài khoản Shuyi Blog của bạn'
+            #message = render_to_string('account/account_activation_email.html',
+            #{
+            #    'user': user,
+            #    'domain': current_site.domain,
+            #    'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+            #    'token': account_activation_token.make_token(user),
+            #})
             #email_mess = EmailMessage(
             #   subject,
             #    message,
@@ -73,7 +73,7 @@ class UserRegisterView(View):
             #send_mail(subject,message,'walapa001@gmail.com',recipient_list)
             #email_mess.send()
             #EmailThread(email_mess).start()
-            user.email_user(subject, message)
+            #user.email_user(subject, message)
             
             return redirect('blog:account_activation_sent')
 
