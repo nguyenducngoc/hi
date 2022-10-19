@@ -1,7 +1,4 @@
 # Django imports.
-from doctest import master
-import email
-import mailbox
 from django.utils.encoding import force_bytes, force_text
 from django.contrib.sites.shortcuts import get_current_site
 from django.contrib.auth import login
@@ -11,15 +8,11 @@ from django.template.loader import render_to_string
 from django.contrib.auth.models import User
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.views.generic import View
-#from django.core.mail import EmailMessage
+
 # Blog app imports.
 from blog.token import account_activation_token
 from blog.forms.account.register_forms import UserRegisterForm
 
-
-#mail
-#from django.core.mail import send_mail
-#from django.conf import settings
 
 class UserRegisterView(View):
     """
@@ -43,7 +36,7 @@ class UserRegisterView(View):
             user.save()
 
             current_site = get_current_site(request)
-            subject = 'Activate Your Bona Blog Account'
+            subject = 'Đã tạo tài khoản thành công'
             message = render_to_string('account/account_activation_email.html',
             {
                 'user': user,
@@ -56,7 +49,7 @@ class UserRegisterView(View):
             return redirect('blog:account_activation_sent')
 
         else:
-            messages.error(request, "Please provide valid information.")
+            messages.error(request, "Vui lòng nhập lại thông tin")
             # Redirect user to register page
             return render(request, self.template_name, self.context_object)
 
@@ -64,7 +57,6 @@ class UserRegisterView(View):
 class AccountActivationSentView(View):
 
     def get(self, request):
-
         return render(request, 'account/account_activation_sent.html')
 
 
