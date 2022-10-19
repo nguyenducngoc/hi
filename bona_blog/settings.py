@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 import os
+from unittest.mock import DEFAULT
 import django_heroku
 import dj_database_url
 import cloudinary
@@ -109,6 +110,12 @@ DATABASES = {
      
     }
 }
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#    }
+#}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -181,16 +188,18 @@ LOGIN_REDIRECT_URL = '/author/dashboard/'
 LOGOUT_REDIRECT_URL = '/account/logout/'
 
 # Email Settings (Development)
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 
 # Email Settings (Production)
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.sendgrid.net'
-# EMAIL_HOST_USER = ''
-# EMAIL_HOST_PASSWORD = ""
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
+
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = "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"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
 
 # CKEditor Settings
 CKEDITOR_UPLOAD_PATH = 'uploads/'

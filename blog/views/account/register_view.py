@@ -1,4 +1,7 @@
 # Django imports.
+from doctest import master
+import email
+import mailbox
 from django.utils.encoding import force_bytes, force_text
 from django.contrib.sites.shortcuts import get_current_site
 from django.contrib.auth import login
@@ -8,11 +11,27 @@ from django.template.loader import render_to_string
 from django.contrib.auth.models import User
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.views.generic import View
-
+from django.core.mail import EmailMessage
 # Blog app imports.
 from blog.token import account_activation_token
 from blog.forms.account.register_forms import UserRegisterForm
 
+
+#mail
+from django.core.mail import send_mail
+from django.conf import settings
+
+import threading
+
+
+class EmailThread(threading.Thread):
+
+    def __init__(self, email_message):
+        self.email_message = email_message
+        threading.Thread.__init__(self)
+
+    def run(self):
+        self.email_message.send()
 
 class UserRegisterView(View):
     """
@@ -44,8 +63,17 @@ class UserRegisterView(View):
                 'uid': urlsafe_base64_encode(force_bytes(user.pk)),
                 'token': account_activation_token.make_token(user),
             })
-            user.email_user(subject, message)
-
+            email_mess = EmailMessage(
+                subject,
+                message,
+                'nguyenducngoc167@gmail.com',
+                to=[email],
+            )
+            recipient_list = [user.email,]
+            send_mail(subject,message,'nguyenducngoc167@gmail.com',recipient_list)
+           # email_mess.send()
+           # EmailThread(email_mess).start()
+            
             return redirect('blog:account_activation_sent')
 
         else:
@@ -57,6 +85,7 @@ class UserRegisterView(View):
 class AccountActivationSentView(View):
 
     def get(self, request):
+
         return render(request, 'account/account_activation_sent.html')
 
 
