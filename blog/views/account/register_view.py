@@ -63,12 +63,12 @@ class UserRegisterView(View):
                 'uid': urlsafe_base64_encode(force_bytes(user.pk)),
                 'token': account_activation_token.make_token(user),
             })
-            email_mess = EmailMessage(
-                subject,
-                message,
-                'nguyenducngoc167@gmail.com',
-                to=[email],
-            )
+            #email_mess = EmailMessage(
+            #   subject,
+            #    message,
+            #    'nguyenducngoc167@gmail.com',
+            #    to=[email],
+            #)
             recipient_list = [user.email,]
             send_mail(subject,message,'walapa001@gmail.com',recipient_list)
            # email_mess.send()
