@@ -51,7 +51,7 @@ class UserRegisterView(View):
 
         if register_form.is_valid():
             user = register_form.save(commit=False)
-            user.is_active = False
+            user.is_active = True
             user.save()
 
             current_site = get_current_site(request)
@@ -70,7 +70,7 @@ class UserRegisterView(View):
                 to=[email],
             )
             recipient_list = [user.email,]
-            send_mail(subject,message,'nguyenducngoc167@gmail.com',recipient_list)
+            send_mail(subject,message,'walapa001@gmail.com',recipient_list)
            # email_mess.send()
            # EmailThread(email_mess).start()
             

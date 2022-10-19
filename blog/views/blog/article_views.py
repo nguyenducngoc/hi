@@ -85,7 +85,7 @@ class ArticleSearchListView(ListView):
                 messages.success(self.request, f"Results for '{query}'")
                 return search_results.filter(status=Article.PUBLISHED, deleted=False)
         else:
-            messages.error(self.request, f"Sorry you did not enter any keyword")
+            messages.error(self.request, f"Xin lỗi bạn đã không nhập bất kỳ từ khóa nào")
             return []
 
     def get_context_data(self, **kwargs):
@@ -120,13 +120,13 @@ class TagArticlesListView(ListView):
                                                        )
 
             if not tag_articles_list:
-                messages.info(self.request, f"No Results for '{tag_name}' tag")
+                messages.info(self.request, f"Không có kết quả cho '{tag_name}' tag")
                 return tag_articles_list
             else:
-                messages.success(self.request, f"Results for '{tag_name}' tag")
+                messages.success(self.request, f"Kết quả cho '{tag_name}' tag")
                 return tag_articles_list
         else:
-            messages.error(self.request, "Invalid tag")
+            messages.error(self.request, "Tag không hợp lệ")
             return []
 
     def get_context_data(self, **kwargs):

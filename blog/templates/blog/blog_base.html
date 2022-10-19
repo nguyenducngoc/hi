@@ -53,7 +53,7 @@
 			<ul class="main-menu visible-on-click" id="main-menu">
 {#				<li><a href="{% url 'blog:authors_list' %}">Tác giả</a></li>#}
 				<li><a href="{% url 'blog:categories_list' %}">Danh mục</a></li>
-                <li><a href="">Hướng dẫn</a></li>
+                <li><a href="{% url 'blog:help_sup' %}">Hướng dẫn</a></li>
                 {% if request.user.is_authenticated %}
                     <li><a href="{% url 'blog:dashboard_home' %}">Dashboard</a></li>
                     <li><a href="{% url 'blog:logout' %}">Đăng xuất</a></li>
