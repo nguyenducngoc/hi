@@ -1,198 +1,91 @@
-{% extends 'dashboard/dashboard_base.html' %}
-{% load static %}
+{% extends 'blog/blog_base.html' %}
 
 {% block title %}
-    Chi tiết hồ sơ
+    Tác giả
 {% endblock title %}
-
-{% block stylesheets %}
-     {{ block.super }}
-        <link href="{% static 'dashboard/author/css/dashboard.css' %}" rel="stylesheet" />
-{% endblock stylesheets %}
 
 
 {% block content %}
+    <div class="slider display-table center-text"
+                 style="background-image: url({{ author.profile.banner_image.url }});
+                    background-size: contain;
+                 height: 400px; width: 100%;">
+		<h1 class="title display-table-cell cell-color">
+            <b>{{ author.username }}</b></h1>
+	</div><!-- slider -->
 
-     <div class="container mb-5">
-        <div class="row shadow-sm">
-            <div class="col-md-12 col-sm-12 col-xs-12 image-section">
-                <img alt="author-banner-image" src="{{ author_profile_details.profile.banner_image.url }}">
-            </div>
-            <div class="row user-left-part">
-                <div class="col-md-3 col-sm-3 col-xs-12 user-profil-part pull-left">
-                    <div class="row ">
-                        <div class="col-md-12 col-md-12-sm-12 col-xs-12 user-image text-center">
-                            <img alt="author-profile-image" src="{{ author_profile_details.profile.image.url }}" class="rounded-circle border border-dark shadow-sm">
-                        </div>
-                        <div class="col-md-12 col-sm-12 col-xs-12 user-detail-section1 text-center">
-                            <a href="{% url 'blog:author_profile_update' %}" class="btn btn-success btn-block follow">
-                                <i class="fas fa-edit fa-sm fa-fw"></i>
-                                Cập nhật hồ sơ</a>
-                            <!--<button class="btn btn-warning btn-block">Descargar Curriculum</button>-->
-                        </div>
-                        <div class="row user-detail-row">
-                            <div class="col-md-12 col-sm-12 user-detail-section2 pull-left">
-                                <div class="border"></div>
-                                <p class="text-dark">MẠNG XÃ HỘI</p>
-                                <span>
-                                    <a href="{{ author_profile_details.profile.facebook_url }}"><i class="fab fa-facebook"></i></a>
-                                    <a href="{{ author_profile_details.profile.twitter_url }}"><i class="fab fa-twitter"></i></a>
-                                    <a href="{{ author_profile_details.profile.instagram_url }}"><i class="fab fa-instagram"></i></a>
-                                    <a href="{{ author_profile_details.profile.github_url }}"><i class="fab fa-github"></i></a>
-                                </span>
+	<section class="blog-area section">
+		<div class="container">
+           {% if articles %}
+			<div class="row">
+                {% for article in articles %}
+				<div class="col-lg-4 col-md-6">
+					<div class="card h-100">
+						<div class="single-post post-style-1">
+							<div class="blog-image">
+                                <img src="{{ article.image.url }}"
+                                     width="330" height="220"
+                                     alt="Blog Image">
                             </div>
-                        </div>
 
-                    </div>
-                </div>
-                <div class="col-md-9 col-sm-9 col-xs-12 pull-right profile-right-section">
-                    <div class="row profile-right-section-row">
-                        <div class="col-md-12 profile-header">
-                            <div class="row">
-                                <div class="col-md-8 col-sm-6 col-xs-6 profile-header-section1 pull-left">
-                                    {% if author_profile_details.first_name and author_profile_details.last_name %}
-                                    <h1>{{ author_profile_details.first_name }} {{ author_profile_details.last_name }}</h1>
-                                    {% else %}
-                                    <h1>{{ author_profile_details.username }}</h1>
-                                    {% endif %}
+							<a class="avatar" href="{% url 'blog:author_articles' article.author.username %}">
+                                <img src="{{ article.author.profile.image.url }}"
+                                                            alt="Profile Image" class="profile-image">
+                            </a>
 
-                                    {% if  author_profile_details.profile.job_title %}
-                                    <h5>{{ author_profile_details.profile.job_title }}</h5>
-                                    {% else %}
-                                    <h5>No Profession/Job Title</h5>
-                                    {% endif %}
-                                </div>
-                                <div class="col-md-4 col-sm-6 col-xs-6 profile-header-section1 text-right pull-rigth">
-                                    <a href="{% url 'blog:home' %}" target="_blank" class="btn btn-primary btn-block">
-                                        <i class="fas fa-paper-plane fa-sm text-white-50"></i> Visit Website</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="row">
-                                <div class="col-md-8">
-                                        <ul class="nav nav-tabs" role="tablist">
-                                                <li class="nav-item">
-                                                  <a class="nav-link active mb-1" href="#profile" role="tab" data-toggle="tab"><i class="fas fa-user-circle"></i> Profile</a>
-                                                </li>
-                                                <li class="nav-item disabled">
-                                                  <a class="nav-link mb-1" href="#buzz" role="tab" data-toggle="tab"><i class="fas fa-info-circle"></i> Profile Details</a>
-                                                </li>
-                                              </ul>
+							<div class="blog-info">
 
-                                              <!-- Tab panes -->
-                                              <div class="tab-content">
-                                                <div role="tabpanel" class="tab-pane fade show active" id="profile">
-                                                        <div class="row mt-1">
-                                                                <div class="col-md-3">
-                                                                    <label class="font-italic text-dark">Tên</label>
-                                                                </div>
-                                                                <div class="col-md-9">
-                                                                    <p>{{ author_profile_details.first_name }}</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col-md-3">
-                                                                    <label class="font-italic text-dark">Họ</label>
-                                                                </div>
-                                                                <div class="col-md-9">
-                                                                    <p>{{ author_profile_details.last_name }}</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col-md-3">
-                                                                    <label class="font-italic text-dark">Email</label>
-                                                                </div>
-                                                                <div class="col-md-9">
-                                                                    <p>{{ author_profile_details.email }}</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col-md-3">
-                                                                    <label class="font-italic text-dark">Sinh sống</label>
-                                                                </div>
-                                                                <div class="col-md-9">
-                                                                    {% if author_profile_details.profile.city and author_profile_details.profile.country %}
-                                                                    <p>{{ author_profile_details.profile.city }},
-                                                                        {{ author_profile_details.profile.country }}</p>
-                                                                    {% else %}
-                                                                    <p></p>
-                                                                    {% endif %}
-                                                                </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col-md-3">
-                                                                    <label class="font-italic text-dark">Tình trạng tài khoản</label>
-                                                                </div>
-                                                                <div class="col-md-9">
-                                                                    {% if author_profile_details.is_active %}
-                                                                    <p class="text-success">Tích cực</p>
-                                                                    {% else %}
-                                                                    <p class="text-danger">Đã hủy kích hoạt (Liên hệ với quản trị viên để kích hoạt Tài khoản của bạn)</p>
-                                                                    {% endif %}
-                                                                </div>
-                                                            </div>
-                                                </div>
-                                                <div role="tabpanel" class="tab-pane fade" id="buzz">
-                                                        <div class="row mt-1">
-                                                                <div class="col-md-4">
-                                                                    <label class="font-italic text-dark">Nghề nghiệp</label>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <p>{{ author_profile_details.profile.job_title }}</p>
-                                                                </div>
-                                                            <div class="col-md-4">
-                                                                    <label class="font-italic text-dark">Tiểu sử</label>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <p>{{ author_profile_details.profile.bio }}</p>
-                                                                </div>
-                                                            </div>
-                                                           <div class="row">
-                                                                <div class="col-md-4">
-                                                                    <label class="font-italic text-dark">Địa chỉ nhà</label>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    {% if author_profile_details.profile.address and author_profile_details.profile.city and author_profile_details.profile.country %}
-                                                                    <p>{{ author_profile_details.profile.address }}, {{ author_profile_details.profile.city }},
-                                                                        {{ author_profile_details.profile.country }}</p>
-                                                                    {% else %}
-                                                                    <p></p>
-                                                                    {% endif %}
-                                                                </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col-md-4">
-                                                                    <label class="font-italic text-dark">Ngày tham gia</label>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <p>{{ author_profile_details.date_joined.date }}</p>
-                                                                </div>
-                                                            </div>
-                                                </div>
+								<h4 class="title"><a href="{{ article.get_absolute_url }}"><b>{{ article.title }}</b></a></h4>
 
-                                              </div>
+								<ul class="post-footer">
+									<li><a><i class="ion-ios-clock"></i>{{ article.read_time }} min{{ article.read_time|pluralize }} read</a></li>
+									<li><i class="ion-chatbubbles"></i>{{ article.comments.count }}</li>
+									<li><i class="ion-eye"></i>{{ article.views }}</li>
+								</ul>
 
-                                </div>
-                                <div class="col-md-4 align-top">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="row image-right-part">
-                                                <div class="col-md-6 pull-left image-right-detail">
-                                                    <h6 class="text-danger">LẦN CUỐI TRÊN MẠNG</h6>
-                                                    <p><span class="font-weight-bold">Date:</span> {{ author_profile_details.last_login.date }}</p>
-                                                    <p><span class="font-weight-bold">Time:</span> {{ author_profile_details.last_login.time }}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-     </div>
+							</div><!-- article-info -->
+
+						</div><!-- single-post -->
+					</div><!-- card -->
+				</div><!-- col-lg-4 col-md-6 -->
+              {% endfor %}
+			</div><!-- row -->
+            {% else %}
+              <center><div class="alert alert-info"><b>Không có bài viết</b></div></center>
+           {% endif %}
+                {# Pagination for article post #}
+            {% if is_paginated %}
+
+                {# Displays previous pages #}
+                {% if page_obj.has_previous %}
+                    <a class="btn btn-outline-info mb-4" href="?page=1">Trang đầu</a>
+                    <a class="btn btn-outline-info mb-4"
+                       href="?page={{ page_obj.previous_page_number }}">Trang trước
+                    </a>
+                {% endif %}
+
+                {# Displays current page #}
+                {% for num in page_obj.paginator.page_range %}
+                    {% if page_obj.number == num %}
+                        <a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
+                    {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                        <a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+                    {% endif %}
+                 {% endfor %}
+
+                {# Displays next pages #}
+               {% if page_obj.has_next %}
+                    <a class="btn btn-outline-info mb-4"
+                       href="?page={{ page_obj.next_page_number }}">Trang sau
+                    </a>
+                    <a class="btn btn-outline-info mb-4"
+                       href="?page={{ page_obj.paginator.num_pages }}">Trang cuối
+                    </a>
+                {% endif %}
+
+            {% endif %}
+
+		</div><!-- container -->
+	</section><!-- section -->
 
 {% endblock content %}

@@ -11,40 +11,40 @@ class Profile(models.Model):
     banner_image = CloudinaryField('banner')
     job_title = models.CharField(max_length=100)
     bio = models.CharField(max_length=100,
-                           help_text="Short Bio (eg. I love cats and games)")
+                           help_text="Sở thích")
 
     address = models.CharField(max_length=100,
-                               help_text="Enter Your Address"
+                               help_text="Nhập địa chỉ của bạn"
                                )
 
     city = models.CharField(
-                            max_length=100, help_text="Enter Your City"
+                            max_length=100, help_text="Thành phố"
                             )
 
     country = models.CharField(max_length=100,
-                               help_text="Enter Your Country"
+                               help_text="Quốc gia"
                                )
 
     zip_code = models.CharField(max_length=100,
-                                help_text="Enter Your Zip Code"
+                                help_text="Mặc định là: 100000"
                                 )
 
     twitter_url = models.CharField(max_length=250, default="#",
                                    blank=True, null=True,
                                    help_text=
-                                   "Enter # if you don't have an account")
+                                   "Tw")
     instagram_url = models.CharField(max_length=250, default="#",
                                      blank=True, null=True,
                                      help_text=
-                                     "Enter # if you don't have an account")
+                                     "IG")
     facebook_url = models.CharField(max_length=250, default="#",
                                     blank=True, null=True,
                                     help_text=
-                                    "Enter # if you don't have an account")
+                                    "Fb")
     github_url = models.CharField(max_length=250, default="#",
                                   blank=True, null=True,
                                   help_text=
-                                  "Enter # if you don't have an account")
+                                  "Gh")
 
     email_confirmed = models.BooleanField(default=False)
 
