@@ -11,15 +11,15 @@ from django.template.loader import render_to_string
 from django.contrib.auth.models import User
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.views.generic import View
-from django.core.mail import EmailMessage
+#from django.core.mail import EmailMessage
 # Blog app imports.
 from blog.token import account_activation_token
 from blog.forms.account.register_forms import UserRegisterForm
 
 
 #mail
-from django.core.mail import send_mail
-from django.conf import settings
+#from django.core.mail import send_mail
+#from django.conf import settings
 
 import threading
 
@@ -55,7 +55,7 @@ class UserRegisterView(View):
             user.save()
 
             current_site = get_current_site(request)
-            subject = 'Kích hoạt tài khoản Shuyi Bolg của bạn'
+            subject = 'Kích hoạt tài khoản Shuyi Blog của bạn'
             message = render_to_string('account/account_activation_email.html',
             {
                 'user': user,
@@ -69,10 +69,11 @@ class UserRegisterView(View):
             #    'nguyenducngoc167@gmail.com',
             #    to=[email],
             #)
-            recipient_list = [user.email,]
-            send_mail(subject,message,'walapa001@gmail.com',recipient_list)
-           # email_mess.send()
-           # EmailThread(email_mess).start()
+            #recipient_list = [user.email,]
+            #send_mail(subject,message,'walapa001@gmail.com',recipient_list)
+            #email_mess.send()
+            #EmailThread(email_mess).start()
+            user.email_user(subject, message)
             
             return redirect('blog:account_activation_sent')
 

@@ -14,22 +14,22 @@
                       method="post" novalidate>
                     {% csrf_token %}
 
-                    <div class="wrap-input100 validate-input" data-validate = "Enter Username">
+                    <div class="wrap-input100 validate-input" data-validate = "Nhập tên tài khoản">
 						{{ register_form.username }}
 						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
 					</div>
 
-                    <div class="wrap-input100 validate-input" data-validate = "Enter Email">
+                    <div class="wrap-input100 validate-input" data-validate = "Nhập email">
 						{{ register_form.email }}
 						<span class="focus-input100" data-placeholder="&#xe818;"></span>
 					</div>
 
-					<div class="wrap-input100 validate-input" data-validate="Enter password">
+					<div class="wrap-input100 validate-input" data-validate="Nhập mật khẩu">
 						{{ register_form.password1 }}
 						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
 					</div>
 
-                    <div class="wrap-input100 validate-input" data-validate="Enter password">
+                    <div class="wrap-input100 validate-input" data-validate="Nhập lại mật khẩu">
 						{{ register_form.password2 }}
 						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
 					</div>
