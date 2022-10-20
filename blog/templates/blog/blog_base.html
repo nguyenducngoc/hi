@@ -57,8 +57,6 @@
                 {% if request.user.is_authenticated %}
                     <li><a href="{% url 'blog:dashboard_home' %}">Dashboard</a></li>
                     <li><a href="{% url 'blog:logout' %}">Đăng xuất</a></li>
-                {% else %}
-                    <li><a href="{% url 'blog:login' %}">Đăng nhập</a></li>
                     <li><a style="display: none;">
                         <div class = "media-sound" style="font-size: 15px;
                         color: #52a3b5;
@@ -76,30 +74,30 @@
         
                             <audio id="fire" src="https://res.cloudinary.com/hv3p1pm6a/video/upload/v1666238076/sounds/fire_tfbm0z.mp3" preload="auto">
                             </audio>
-                            <a onClick="togglePlay2()" style="cursor: pointer;background-image: linear-gradient( -225deg, #ffe601 0%, #ff9100 29%, #ff5e00 67%, #fc0000 100% );
+                            <a onClick="togglePlay2()" style="background-image: linear-gradient( -225deg, #ffe601 0%, #ff9100 29%, #ff5e00 67%, #fc0000 100% );
                             -webkit-background-clip: text;
                             -webkit-text-fill-color: transparent;">Lửa</a>
                             
                             <audio id="garden" src="https://res.cloudinary.com/hv3p1pm6a/video/upload/v1666238078/sounds/garden_akdekt.mp3" preload="auto" >
                             </audio>
-                            <a onClick="togglePlay3()" style="cursor: pointer;background-image: linear-gradient( -225deg, #18fadc 0%, #17fcaf 29%, #2bff00 67%, #e6ff06 100% );
+                            <a onClick="togglePlay3()" style="background-image: linear-gradient( -225deg, #18fadc 0%, #17fcaf 29%, #2bff00 67%, #e6ff06 100% );
                             -webkit-background-clip: text;
                             -webkit-text-fill-color: transparent;">Vườn</a>
                             
                             <audio id="rain" src="https://res.cloudinary.com/hv3p1pm6a/video/upload/v1666238075/sounds/rain_gy0zsg.mp3" preload="auto" >
                             </audio>
-                            <a onClick="togglePlay4()" style="cursor: pointer;background-image: linear-gradient( -225deg, #5acac1 0%, #aae1f1 29%, #53baff 67%, #113af5 100% );
+                            <a onClick="togglePlay4()" style="background-image: linear-gradient( -225deg, #5acac1 0%, #aae1f1 29%, #53baff 67%, #113af5 100% );
                             -webkit-background-clip: text;
                             -webkit-text-fill-color: transparent;">Mưa</a>
                             
                             <audio id="seasite" src="https://res.cloudinary.com/hv3p1pm6a/video/upload/v1666238077/sounds/seaside_k2gcxd.mp3" preload="auto">
                             </audio>
-                            <a onClick="togglePlay5()" style="cursor: pointer;background-image: linear-gradient( -225deg, #bcdaf7 0%, #4f6fff 29%, #ff668c 67%, #ff48f6 100% );
+                            <a onClick="togglePlay5()" style="background-image: linear-gradient( -225deg, #bcdaf7 0%, #4d8bff 29%, #ee39ff 67%, #ee5b6e 100% );
                             -webkit-background-clip: text;
                             -webkit-text-fill-color: transparent;">Sóng</a>
                             <audio id="water" src="https://res.cloudinary.com/hv3p1pm6a/video/upload/v1666238078/sounds/water-stream_qbxemk.mp3" preload="auto">
                             </audio>
-                            <a onClick="togglePlay6()" style="cursor: pointer;background-image: linear-gradient( -225deg, #89f0b4 0%, #88abec 29%, #2b3bca 67%, #4b5e9c 100% );
+                            <a onClick="togglePlay6()" style="background-image: linear-gradient( -225deg, #89f0b4 0%, #88abec 29%, #2b3bca 67%, #4b5e9c 100% );
                             -webkit-background-clip: text;
                             -webkit-text-fill-color: transparent;">Nước</a>
                             
@@ -116,6 +114,7 @@
                                 }
                             }; 
                             var audioElement5= document.getElementById("seasite");
+                            audioElement5.volume = 0.3;
                             function togglePlay5() {
                                 if (audioElement5.paused) {
                                     audioElement5.play();
@@ -125,7 +124,7 @@
                                 }
                             }; 
                             var audioElement4= document.getElementById("rain");
-                            audioElement4.volume = 0.3;
+                            audioElement4.volume = 0.5;
                             function togglePlay4() {
                                 if (audioElement4.paused) {
                                     audioElement4.play();
@@ -164,6 +163,9 @@
                             </script>
                         </div>
                         </a></li>
+                {% else %}
+                    <li><a href="{% url 'blog:login' %}">Đăng nhập</a></li>
+                    
                 {% endif %}
                 
 			</ul><!-- main-menu -->
