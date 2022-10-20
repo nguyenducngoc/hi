@@ -58,7 +58,7 @@ INSTALLED_APPS = [
 
     # My apps.
     'blog.apps.BlogConfig',
-    'cloudinary'
+    'cloudinary',
 
  ]
 
@@ -85,6 +85,7 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'django.template.context_processors.media',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
@@ -162,8 +163,8 @@ cloudinary.config(
   api_secret = "aOpfL5Nhh9yPmrG1Uf5CRXUoCoA" 
 )
 
-MEDIA_URL = '/mediafiles/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 django_heroku.settings(locals())
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "blog/static"),

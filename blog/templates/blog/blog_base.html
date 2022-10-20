@@ -59,9 +59,101 @@
                     <li><a href="{% url 'blog:logout' %}">Đăng xuất</a></li>
                 {% else %}
                     <li><a href="{% url 'blog:login' %}">Đăng nhập</a></li>
+                    <li><a style="display: none;">
+                        <div class = "media-sound" style="font-size: 15px;
+                        color: #52a3b5;
+                        font-family: sans-serif;
+                        text-align: center;
+                        height: 60px;
+                        line-height: 60px;
+                        padding: 0 25px;
+                        border-right: 1px solid #eee;">
+                            <audio id="wind" src="https://res.cloudinary.com/hv3p1pm6a/video/upload/v1666238080/sounds/wind_z5pfrd.mp3"preload= "auto">
+                            </audio>
+                            <a onClick="togglePlay1()">Wind</a>
+                            
+                            <audio id="fire" src="https://res.cloudinary.com/hv3p1pm6a/video/upload/v1666238076/sounds/fire_tfbm0z.mp3" preload="auto">
+                            </audio>
+                            <a onClick="togglePlay2()">Fire</a>
+                            
+                            <audio id="garden" src="https://res.cloudinary.com/hv3p1pm6a/video/upload/v1666238078/sounds/garden_akdekt.mp3" preload="auto" >
+                            </audio>
+                            <a onClick="togglePlay3()">Garden</a>
+                            
+                            <audio id="rain" src="https://res.cloudinary.com/hv3p1pm6a/video/upload/v1666238075/sounds/rain_gy0zsg.mp3" preload="auto" >
+                            </audio>
+                            <a onClick="togglePlay4()">Rain</a>
+                            
+                            <audio id="seasite" src="https://res.cloudinary.com/hv3p1pm6a/video/upload/v1666238077/sounds/seaside_k2gcxd.mp3" preload="auto">
+                            </audio>
+                            <a onClick="togglePlay5()">Seasite</a>
+                            <audio id="water" src="https://res.cloudinary.com/hv3p1pm6a/video/upload/v1666238078/sounds/water-stream_qbxemk.mp3" preload="auto">
+                            </audio>
+                            <a onClick="togglePlay6()">Water</a>
+                            
+                            <script>
+                            var audioElement6= document.getElementById("water");
+                            function togglePlay6() {
+                                if (audioElement6.paused) {
+                                    audioElement6.play();
+                                }
+                                else {
+                                    audioElement6.pause(); 
+                                }
+                            }; 
+                            var audioElement5= document.getElementById("seasite");
+                            function togglePlay5() {
+                                if (audioElement5.paused) {
+                                    audioElement5.play();
+                                }
+                                else {
+                                    audioElement5.pause(); 
+                                }
+                            }; 
+                            var audioElement4= document.getElementById("rain");
+                            function togglePlay4() {
+                                if (audioElement4.paused) {
+                                    audioElement4.play();
+                                }
+                                else {
+                                    audioElement4.pause(); 
+                                }
+                            };   
+                            var audioElement1= document.getElementById("wind");
+                            function togglePlay1() {
+                                if (audioElement1.paused) {
+                                    audioElement1.play();
+                                }
+                                else {
+                                    audioElement1.pause();
+                                }
+                            };
+                            var audioElement2= document.getElementById("fire");
+                            function togglePlay2() {
+                                if (audioElement2.paused) {
+                                    audioElement2.play();
+                                }
+                                else {
+                                    audioElement2.pause();
+                                }
+                            };
+                            var audioElement3= document.getElementById("garden");
+                            function togglePlay3() {
+                                if (audioElement3.paused) {
+                                    audioElement3.play();
+                                }
+                                else {
+                                    audioElement3.pause();
+                                }
+                            };
+                            </script>
+                        </div>
+                        </a></li>
                 {% endif %}
+                
 			</ul><!-- main-menu -->
-
+            
+            
 			<div class="src-area">
 				<form method="get" action="{% url 'blog:article_search_list_view' %}">
 					<button class="src-btn" type="submit"><i class="ion-ios-search-strong"></i></button>
