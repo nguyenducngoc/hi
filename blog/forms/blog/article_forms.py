@@ -13,7 +13,7 @@ from blog.models.category_models import Category
 class ArticleCreateForm(forms.ModelForm):
     category = forms.ModelChoiceField(queryset=Category.objects.filter(
                                       approved=True),
-                                      empty_label="Select Category",
+                                      empty_label="Chọn danh mục",
                                       widget=forms.Select(attrs=
                                                           {
                                                               "class": "form-control selectpicker",
@@ -59,7 +59,7 @@ class ArticleCreateForm(forms.ModelForm):
             'image_credit': TextInput(attrs={
                 'name': "image_credit",
                 'class': "form-control",
-                'placeholder': "Example: made4dev.com (Premium Programming T-shirts)",
+                'placeholder': "Ví dụ: Bức ảnh được chụp bởi tớ",
                 'id': "image_credit"
             }),
 
@@ -73,7 +73,7 @@ class ArticleCreateForm(forms.ModelForm):
             'tags': TextInput(attrs={
                                      'name': "tags",
                                      'class': "form-control",
-                                     'placeholder': "Example: sports, game, politics",
+                                     'placeholder': "Ví dụ: Đá bóng, thời trang, học tập...",
                                      'id': "tags",
                                      'data-role': "tagsinput"
                                      }),
@@ -85,7 +85,7 @@ class ArticleCreateForm(forms.ModelForm):
                                  "name": "status", "type": "text",
                                  "id": "articleStatus",
                                  "data-live-search": "true",
-                                 "title": "Select Status"
+                                 "title": "Chọn trạng thái"
                              }
                              ),
         }
@@ -94,7 +94,7 @@ class ArticleCreateForm(forms.ModelForm):
 class ArticleUpdateForm(forms.ModelForm):
     category = forms.ModelChoiceField(queryset=Category.objects.filter(
                                       approved=True),
-                                      empty_label="Select Category",
+                                      empty_label="Nhập danh mục",
                                       widget=forms.Select(attrs=
                                                           {
                                                               "class": "form-control selectpicker",
@@ -123,14 +123,14 @@ class ArticleUpdateForm(forms.ModelForm):
             'title': TextInput(attrs={
                 'name': "article-title",
                 'class': "form-control",
-                'placeholder': "Enter Article Title",
+                'placeholder': "Nhập tên bài viết",
                 'id': "articleTitle"
             }),
 
             'image_credit': TextInput(attrs={
                 'name': "image_credit",
                 'class': "form-control",
-                'placeholder': "Example: made4dev.com (Premium Programming T-shirts)",
+                'placeholder': "Ví dụ: Đây là bức hình mình họa",
                 'id': "image_credit"
             }),
 
@@ -141,7 +141,7 @@ class ArticleUpdateForm(forms.ModelForm):
                                  "name": "status", "type": "text",
                                  "id": "articleStatus",
                                  "data-live-search": "true",
-                                 "title": "Select Status"
+                                 "title": "Chọn trạng thái"
                              }
                              ),
             'body': forms.CharField(widget=CKEditorWidget(config_name="default", attrs={
