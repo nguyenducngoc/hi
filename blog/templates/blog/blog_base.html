@@ -54,8 +54,7 @@
 {#				<li><a href="{% url 'blog:authors_list' %}">Tác giả</a></li>#}
 				<li><a href="{% url 'blog:categories_list' %}">Danh mục</a></li>
                 <li><a href="#">Hướng dẫn</a></li>
-                {% if request.user.is_authenticated %}
-                    <li><a href="{% url 'blog:dashboard_home' %}">Dashboard</a></li>
+                <li><a href="{% url 'blog:dashboard_home' %}">Dashboard</a></li>
                     <li><a href="{% url 'blog:logout' %}">Đăng xuất</a></li>
                     <li><a style="display: none;">
                         <div class = "media-sound" style="font-size: 15px;
@@ -163,6 +162,7 @@
                             </script>
                         </div>
                         </a></li>
+                {% if request.user.is_authenticated %}
                 {% else %}
                     <li><a href="{% url 'blog:login' %}">Đăng nhập</a></li>
                     
