@@ -177,7 +177,7 @@ STATICFILES_FINDERS = [
 ]
 
 # Media files (User uploaded images)
-MEDIA_URL = '/media/'
+MEDIA_URL = '/mediafiles/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 # Specifies the CSS Framework Crispy Forms should use.heroku git:remote -a shuy1

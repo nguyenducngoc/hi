@@ -137,7 +137,7 @@ header .visible.main-menu{ display: block; }
 
 /* SEARCH AREA */
 
-header .src-area{ position: relative; height: 60px; width: 50%; float: right; display: inline-block; background: #F5F7F6; }
+header .src-area{ position: relative; height: 60px; width: 25%; float: right; display: inline-block; background: #F5F7F6; }
 
 header .src-area .src-input{
     position: absolute;
@@ -145,9 +145,9 @@ header .src-area .src-input{
     bottom: 0;
     left: 0;
     right: 0;
-    width: 60%;
+    width: 30%;
     padding: 0 20px 0 50px;
-    /*background: #d6dde0;*/
+   /* background: #d6dde0;*/
     background: transparent;
     border: 0;
     outline: 0;
