@@ -157,7 +157,7 @@
                         </script>
                     </div>
                     </a></li>
-{#				<li><a href="{% url 'blog:authors_list' %}">Tác giả</a></li>#}
+				<li><a href="{% url 'blog:authors_list' %}">Tác giả</a></li>
                 <li><a href="{% url 'blog:categories_list' %}">Danh mục</a></li>
                 {% if request.user.is_authenticated %}
                     <li><a href="{% url 'blog:dashboard_home' %}">Dashboard</a></li>
