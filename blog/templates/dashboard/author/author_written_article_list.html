@@ -3,7 +3,7 @@
 {% load only_hours %}
 
 {% block title %}
-    All Articles
+    Danh sách các bài viết
 {% endblock title %}
 
 {% block stylesheets %}
@@ -19,8 +19,8 @@
                 <div class="page-header-title">
                     <i class="ik ik-edit-1 bg-primary"></i>
                     <div class="d-inline">
-                        <h5>Written Articles</h5>
-                        <span>List of all your written articles.</span>
+                        <h5>Các bài đã viết</h5>
+                        <span>Danh sách các bài viết.</span>
                     </div>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                 <div class="col-md-12">
                         <div class="card shadow-sm">
                             <div class="card-header">
-                                <h4 class="title">List Of Written Articles</h4>
+                                <h4 class="title">Danh sách các bài viết</h4>
                             </div>
                           <div class="card-body">
                             <div class="content">
@@ -46,8 +46,8 @@
                                                 <div class="media-body">
                                                     <h3 class="title mb-1"><a href="{% url 'blog:dashboard_article_detail' slug=article.slug %}">{{ article.title }}</a></h3>
                                                     <div class="meta mb-1">
-                                                        <span class="date"><b>Created</b>: <i>{{ article.date_created|timesince|upto:',' }} ago</i></span>
-                                                        <span class="date">Status:
+                                                        <span class="date"><b>Đã tạo</b>: <i>{{ article.date_created|timesince|upto:',' }} ago</i></span>
+                                                        <span class="date">Trạng thái:
                                                             <b {% if article.status == "PUBLISHED"%} class="text-success" {% endif %}
                                                                {% if article.status == "DRAFTED" %} class="text-primary" {% endif %}
                                                             >
@@ -60,13 +60,13 @@
                                                         <i class="fas fa-chevron-down" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         </i>
                                                         <div class="dropdown-menu">
-                                                            <a class="dropdown-item" href="{% url 'blog:article_update' slug=article.slug %}">Edit Article</a>
+                                                            <a class="dropdown-item" href="{% url 'blog:article_update' slug=article.slug %}">Chỉnh sửa bài viết</a>
                                                             <div class="dropdown-divider w-100" ></div>
-                                                            <a data-toggle="modal" data-target="#deleteModal" class="dropdown-item" href="javascript:void(0)">Delete Article</a>
+                                                            <a data-toggle="modal" data-target="#deleteModal" class="dropdown-item" href="javascript:void(0)">Xóa bài viết</a>
                                                         </div>
                                                       </span>
                                                     </div>
-                                                    <a class="more-link" href="{% url 'blog:dashboard_article_detail' slug=article.slug %}">View details &rarr;</a>
+                                                    <a class="more-link" href="{% url 'blog:dashboard_article_detail' slug=article.slug %}">Xem chi tiết &rarr;</a>
                                                 <hr class="solid"><!-- Solid divider -->
                                                 </div><!--//media-body-->
                                             </div><!--//media-->
@@ -75,7 +75,7 @@
                                       <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                           <div class="modal-header">
-                                              <h5 class="modal-title" id="exampleModalLabel"><b>Ready to Delete Article?</b></h5>
+                                              <h5 class="modal-title" id="exampleModalLabel"><b>Bạn sẽ xóa bài viết này?</b></h5>
                                             <button
                                               class="close"
                                               type="button"
@@ -86,7 +86,7 @@
                                             </button>
                                           </div>
                                           <div class="modal-body">
-                                            Select "Delete Article" below if you want to delete the article.
+                                            Chọn "Xóa bài viết" để xóa!
                                           </div>
                                           <div class="modal-footer">
                                             <button
@@ -94,9 +94,9 @@
                                               type="button"
                                               data-dismiss="modal"
                                             >
-                                              Cancel
+                                              Hủy bỏ
                                             </button>
-                                            <a class="btn btn-danger" href="{% url 'blog:article_delete' slug=article.slug %}">Delete Article</a>
+                                            <a class="btn btn-danger" href="{% url 'blog:article_delete' slug=article.slug %}">Xóa bài viết</a>
                                           </div>
                                         </div>
                                       </div>
@@ -104,7 +104,7 @@
                                  {% endfor %}
                                     </div>
                              {% else %}
-                                       <center><div class="alert alert-info"><b>No Written Articles</b></div></center>
+                                       <center><div class="alert alert-info"><b>Không có bài viết nào</b></div></center>
                              {% endif %}
                                 </section>
 
@@ -119,7 +119,7 @@
                                         </li>
                                       {% else %}
                                         <li class="badge badge-pill badge-secondary disabled">
-                                         <span class="badge badge-pill badge-secondary">Previous</span>
+                                         <span class="badge badge-pill badge-secondary">Trước</span>
                                         </li>
                                          {% endif %}
                                         {% for i in written_articles_list.paginator.page_range %}
@@ -138,11 +138,11 @@
                                         {% endfor %}
                                         {% if written_articles_list.has_next %}
                                             <li class="badge badge-pill badge-secondary">
-                                          <a class="badge text-white" href="?page={{ written_articles_list.next_page_number }}">Next</a>
+                                          <a class="badge text-white" href="?page={{ written_articles_list.next_page_number }}">Sau</a>
                                         </li>
                                         {% else %}
                                          <li class="badge badge-pill badge-secondary disabled">
-                                         <span class="badge badge-pill badge-secondary">Next</span>
+                                         <span class="badge badge-pill badge-secondary">Sau</span>
                                         </li>
                                           {% endif %}
                                       </ul>

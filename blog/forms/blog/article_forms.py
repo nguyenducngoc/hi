@@ -43,7 +43,7 @@ class ArticleCreateForm(forms.ModelForm):
             'title': TextInput(attrs={
                                      'name': "article-title",
                                      'class': "form-control",
-                                     'placeholder': "Enter Article Title",
+                                     'placeholder': "Nhập tên bài viết",
                                      'id': "articleTitle"
                                      }),
 

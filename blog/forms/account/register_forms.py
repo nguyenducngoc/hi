@@ -19,12 +19,12 @@ class UserRegisterForm(UserCreationForm):
                                  "placeholder": "Email"
                                                     }
                                               ),
-                             help_text='Required. Input a valid email address.'
+                             help_text='Vui lòng nhập lại, email của bạn chưa chính xác'
                              )
     password1 = forms.CharField(widget=
                                 forms.PasswordInput(attrs={
                                  "name": "password1", "class": "input100",
-                                 "placeholder": "Password"
+                                 "placeholder": "Mật khẩu"
                                                     }
                                                     ),
                                 )
@@ -32,7 +32,7 @@ class UserRegisterForm(UserCreationForm):
     password2 = forms.CharField(widget=
                                 forms.PasswordInput(attrs={
                                  "name": "password2", "class": "input100",
-                                 "placeholder": "Confirm Password"
+                                 "placeholder": "Xác nhận lại mật khẩu"
                                                     }
 
                                                     ),
@@ -45,7 +45,7 @@ class UserRegisterForm(UserCreationForm):
 
             "username": forms.TextInput(attrs={
                 "name": "username", "class": "input100",
-                "placeholder": "Username"
+                "placeholder": "Tên tài khoản"
             }),
 
 
