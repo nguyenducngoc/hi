@@ -208,88 +208,83 @@
     {% endblock content %}
 
 
-{#    {% block footer %}#}
-{##}
-{#        <footer>#}
-{##}
-{#		<div class="container">#}
-{#			<div class="row">#}
-{##}
-{#				<div class="col-lg-4 col-md-6">#}
-{#					<div class="footer-section">#}
-{##}
-{#						<a class="logo" href="#">#}
-{#                            <img src="{% static 'blog/images/logo.png' %}"#}
-{#                                 alt="Logo Image"></a>#}
-{#						<p class="copyright">Shuyi-2022</p>#}
-{##}
-{#						<ul class="icons">#}
-{#							<li><a href="#">#}
-{#                                <i class="ion-social-facebook-outline"></i>#}
-{#                               </a>#}
-{#                            </li>#}
-{#							<li><a href="#">#}
-{#                                <i class="ion-social-twitter-outline">#}
-{#                                </i>#}
-{#                                </a>#}
-{#                            </li>#}
-{#							<li><a href="#">#}
-{#                                <i class="ion-social-instagram-outline">#}
-{#                                </i>#}
-{#                                </a>#}
-{#                            </li>#}
-{#							<li><a href="#">#}
-{#                                <i class="ion-social-vimeo-outline">#}
-{#                                </i>#}
-{#                                </a>#}
-{#                            </li>#}
-{#							<li><a href="#">#}
-{#                                <i class="ion-social-pinterest-outline"></i>#}
-{#                                </a>#}
-{#                            </li>#}
-{#						</ul>#}
-{##}
-{#					</div><!-- footer-section -->#}
-{#				</div><!-- col-lg-4 col-md-6 -->#}
-{##}
-{#				<div class="col-lg-4 col-md-6">#}
-{#						<div class="footer-section">#}
-{#						<h4 class="title"><b>MENU</b></h4>#}
-{#						<ul>#}
-{#							<li><a href="{% url 'blog:login' %}">Login</a></li>#}
-{#							<li><a href="#">HEALTH</a></li>#}
-{#							<li><a href="#">MUSIC</a></li>#}
-{#						</ul>#}
-{#						<ul>#}
-{#                            <li><a href="{% url 'blog:register' %}">Sign Up</a></li>#}
-{#							<li><a href="#">DESIGN</a></li>#}
-{#							<li><a href="#">TRAVEL</a></li>#}
-{#						</ul>#}
-{#					</div><!-- footer-section -->#}
-{#				</div><!-- col-lg-4 col-md-6 -->#}
-{##}
-{#				<div class="col-lg-4 col-md-6">#}
-{#					<div class="footer-section">#}
-{##}
-{#						<h4 class="title"><b>SUBSCRIBE</b></h4>#}
-{#						<div class="input-area">#}
-{#							<form>#}
-{#								<input class="email-input" type="text"#}
-{#                                       placeholder="Enter your email">#}
-{#								<button class="submit-btn" type="submit">#}
-{#                                    <i class="icon ion-ios-email-outline"></i>#}
-{#                                </button>#}
-{#							</form>#}
-{#						</div>#}
-{##}
-{#					</div><!-- footer-section -->#}
-{#				</div><!-- col-lg-4 col-md-6 -->#}
-{##}
-{#			</div><!-- row -->#}
-{#		</div><!-- container -->#}
-{#	</footer>#}
-{##}
-{# {% endblock footer %}#}
+    % block footer %
+
+    <footer>
+
+		<div class="container">
+			<div class="row">
+
+				<div class="col-lg-4 col-md-6">
+					<div class="footer-section">
+
+						<a class="logo" href="#">
+                            <img src="{% static 'blog/images/logo.png' %}"
+                                 alt="Logo Image"></a>
+						        <p class="copyright" style="font-size: 16px;text-align:center;font-style: italic; color: #5acac1;">By NĐN 2022</p>
+
+						<ul class="icons">
+							<li><a href="#">
+                                <i class="ion-social-facebook-outline"></i>
+                               </a>
+                            </li>
+							<li><a href="#">
+                                <i class="ion-social-twitter-outline">
+                                </i>
+                                </a>
+                            </li>
+							<li><a href="#">
+                                <i class="ion-social-instagram-outline">
+                                </i>
+                                </a>
+                            </li>
+							<li><a href="#">
+                                <i class="ion-social-vimeo-outline">
+                                </i>
+                                </a>
+                            </li>
+							<li><a href="#">
+                                <i class="ion-social-pinterest-outline"></i>
+                                </a>
+                            </li>
+						</ul>
+
+					</div><!-- footer-section -->
+				</div><!-- col-lg-4 col-md-6 -->
+
+				<div class="col-lg-4 col-md-6">
+						<div class="footer-section">
+						<h4 class="title"><b>Trang chủ</b></h4>
+						<ul>
+							<li><a href="{% url 'blog:login' %}">Đăng nhập</a></li>
+						</ul>
+						<ul>
+                            <li><a href="{% url 'blog:register' %}">Đăng kí</a></li>
+						</ul>
+					</div><!-- footer-section -->
+				</div><!-- col-lg-4 col-md-6 -->
+
+				<div class="col-lg-4 col-md-6">
+					<div class="footer-section">
+
+						<h4 class="title"><b>Nhận thông báo</b></h4>
+						<div class="input-area">
+							<form>
+								<input class="email-input" type="text"
+                                       placeholder="Nhập email của bạn">
+								<button class="submit-btn" type="submit">
+                                    <i class="icon ion-ios-email-outline"></i>
+                                </button>
+							</form>
+						</div>
+
+					</div><!-- footer-section -->
+				</div><!-- col-lg-4 col-md-6 -->
+
+			</div><!-- row -->
+		</div><!-- container -->
+	</footer>
+{% endblock footer %}#}
 
     <!-- SCRIPTS -->
  {% block scripts %}
